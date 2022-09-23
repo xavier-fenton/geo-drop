@@ -2,15 +2,25 @@ import request from 'superagent'
 
 const rootUrl = '/api/v1'
 
+// MESSAGES
+
 export function getMessages(location) {
-  // console.log(location)
   return request
     .get(`${rootUrl}/messages?lat=${location.lat}&long=${location.long}`)
     .then((res) => {
-     
+      console.log(res.body)
       return res.body
     })
     .catch(logError)
+}
+
+export function addMessages(messageEntry) {
+  const { name, lat, long, msg } = messageEntry
+
+  return request
+    .post('/api/v1/messages')
+    .send({ name, lat, long, msg })
+    .then((response) => response.body)
 }
 
 // Get Fruits

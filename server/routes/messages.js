@@ -19,3 +19,18 @@ router.get('/', async (req, res) => {
     res.status(500).send(err.message)
   }
 })
+
+
+router.post('/', (req, res) => {
+  const { name, lat, long, msg } = req.body
+
+  db.addMessage({ name, lat, long, msg })
+    .then(() => {
+      res.sendStatus(201)
+      return null
+    })
+    .catch((err) => {
+      console.error(err)
+      res.status(500).json({ message: 'error in server' })
+    })
+})

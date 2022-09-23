@@ -15,30 +15,27 @@ export default function Message() {
     e.preventDefault()
     setButton(!button)
   }
-  // useEffect(async () => {
-  // const interval = setInterval(() => {
-  //   if (navigator.geolocation) {
 
-  //   } else {
-  //     // x.innerHTML = 'Geolocation is not supported by this browser.'
-  //     alert('Geolocation is not supported by this browser.')
-  //   }
-  // }, 1000)
-  // return () => clearInterval(interval)
-  // }
-
-  // , [])
+  const accuracyOptions = {
+    enableHighAccuracy: true,
+    timeout: 5000,
+    maximumAge: 0
+  };
 
   useEffect(() => {
     setLoader(true)
     navigator.geolocation.getCurrentPosition((position) => {
+      const crd = position.coords
+      console.log(`Recorded latitude: ${crd.latitude}`)
+      console.log(`Recorded longitude: ${crd.longitude}`)
+      console.log(`More or less: ${crd.accuracy} meters`)
       setLocation({
-        long: position.coords.longitude,
-        lat: position.coords.latitude,
+        long: crd.longitude,
+        lat: crd.latitude,
       })
       getMessages({
-        long: position.coords.longitude,
-        lat: position.coords.latitude,
+        long: crd.longitude,
+        lat: crd.latitude,
       })
         .then((res) => {
           console.log(res)
@@ -49,8 +46,6 @@ export default function Message() {
     })
   }, [button])
 
-  //just to see location
-  //const x = document.getElementById('demo')
 
   return (
     <div>
@@ -59,13 +54,14 @@ export default function Message() {
           {console.log(message)}
           <ul>
             {message.map((messages) => (
-              <li key={messages.id}>{messages.msg}</li>
+
+              <li key={messages.id}>{`${messages.name} says ${messages.msg}`}</li>
             ))}
           </ul>
           <p id="demo"></p>
         </>
       ) : (
-        <p>loading...</p>
+        <p>Searching for messages...</p>
       )}
       <button onClick={handleClick}>Search For New Message</button>
     </div>
