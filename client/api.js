@@ -7,6 +7,7 @@ export function getMessages(location) {
   return request
     .get(`${rootUrl}/messages?lat=${location.lat}&long=${location.long}`)
     .then((res) => {
+     
       return res.body
     })
     .catch(logError)

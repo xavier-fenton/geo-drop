@@ -54,31 +54,20 @@ export default function Message() {
 
   return (
     <div>
-      <button onClick={handleClick}>Click</button>
       {!loader ? (
         <>
-          <h1>show cords</h1>
           {console.log(message)}
-          {/* <p>{message}</p> */}
-
-          <p>{location.lat}</p>
-          <p>{location.long}</p>
-
-          <p>messages: {message.msg[0].msg}</p>
-          {/* <p>{message.msg[0].msg}</p>
-          <p>{message.msg[1].msg}</p> */}
-
-          {/* <p>{message.msg[0].msg}</p> */}
+          <ul>
+            {message.map((messages) => (
+              <li key={messages.id}>{messages.msg}</li>
+            ))}
+          </ul>
           <p id="demo"></p>
-          {/* <ul>
-        {message.map((messages) => (
-          <li key={messages.id}>{message.msg}</li>
-        ))}
-      </ul> */}
         </>
       ) : (
         <p>loading...</p>
       )}
+      <button onClick={handleClick}>Search For New Message</button>
     </div>
   )
 }

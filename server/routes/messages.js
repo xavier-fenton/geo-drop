@@ -13,7 +13,7 @@ router.get('/', async (req, res) => {
 
   try {
     const msg = await db.getMessage(input)
-    res.json({ msg })
+    res.json(msg)
   } catch (err) {
     console.error(err)
     res.status(500).send(err.message)

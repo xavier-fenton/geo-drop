@@ -8,7 +8,7 @@ function getMessage(input, db = connection) {
   return db('messages')
     .whereBetween('lat', [lat - r, lat + r])
     .whereBetween('long', [long - r, long + r])
-    .select('msg')
+    .select('msg', 'id')
 }
 
 module.exports = {
