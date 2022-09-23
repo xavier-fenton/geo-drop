@@ -4,6 +4,7 @@ import { cacheUser } from '../auth0-utils'
 import Nav from './Nav'
 import PingRoutes from './PingRoutes'
 import Registration from './Registration'
+import Message from './Message'
 import Users from './Users'
 import { Routes, Route } from 'react-router-dom'
 
@@ -12,6 +13,7 @@ function App() {
 
   return (
     <div className="app">
+      <Message />
       <Routes>
         <Route path="/" element={<Nav />} />
         <Route path="/" element={<Users />} />
