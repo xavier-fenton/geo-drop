@@ -20,6 +20,7 @@
     "format": "prettier -w server client",
     "webpack": "webpack --config ./client/webpack.config.js",
     "knex": "knex --knexfile ./server/db/knexfile.js",
+    "seed": "knex --knexfile ./server/db/knexfile.js seed:run",
     "tailwind": "tailwindcss -i ./server/public/input.css -o ./server/public/output.css --watch "
   },
   "babel": {
