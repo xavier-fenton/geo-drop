@@ -19,7 +19,7 @@ function addMessage(messageEntry, db = connection) {
 
 module.exports = {
   getMessage,
-  addMessage
+  addMessage,
 }
 
 // terminal lat: '-36.8692362162736', long: '174.7473588339253

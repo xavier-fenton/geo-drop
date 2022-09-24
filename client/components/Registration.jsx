@@ -51,7 +51,7 @@ function Registration() {
           name="auth0Id"
           value={form.auth0Id}
           onChange={handleChange}
-          disabled={true}
+          disabled={false}
         ></input>
 
         <label htmlFor="name">Name</label>

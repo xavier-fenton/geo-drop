@@ -13,13 +13,13 @@ router.get('/', async (req, res) => {
 
   try {
     const msg = await db.getMessage(input)
+    console.log(msg)
     res.json(msg)
   } catch (err) {
     console.error(err)
     res.status(500).send(err.message)
   }
 })
-
 
 router.post('/', (req, res) => {
   const { name, lat, long, msg } = req.body
