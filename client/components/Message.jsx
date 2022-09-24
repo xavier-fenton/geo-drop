@@ -36,7 +36,7 @@ export default function Message(props) {
   // }, [button])
 
   return (
-    <div>
+    <div className="bg-slate-700">
       {loader ? (
         <>
           <ul>
