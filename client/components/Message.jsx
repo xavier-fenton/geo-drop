@@ -36,22 +36,31 @@ export default function Message(props) {
   // }, [button])
 
   return (
-    <div className="bg-slate-700">
-      {loader ? (
-        <>
-          <ul>
-            {props.messages.map((messages) => (
-              <li
-                key={messages.id}
-              >{`${messages.name} says ${messages.msg}`}</li>
-            ))}
-          </ul>
-          <p id="demo"></p>
-        </>
-      ) : (
-        <p>Searching for messages...</p>
-      )}
-      <button onClick={handleClick}>Search For New Message</button>
-    </div>
+    <>
+      <div className="p-6  bg-black">
+        {loader ? (
+          <div className="overflow-scroll max-h-60 h-64  text-lg p-6 rounded-md border-2 border-blue bg-gradient-to-r from-gray-200 via-gray-400 to-gray-600">
+            <ul>
+              {props.messages.map((messages) => (
+                <li
+                  className="bg-green-400 my-3 p-2 text-white drop-shadow-xl rounded-lg"
+                  key={messages.id}
+                >{`${messages.name} says ${messages.msg}`}</li>
+              ))}
+            </ul>
+          </div>
+        ) : (
+          <p>Searching for messages...</p>
+        )}
+        <div className="p-3 my-3 rounded-md border-2  border-white text-center">
+          <button
+            className="text-center bg-black text-white"
+            onClick={handleClick}
+          >
+            Search Area
+          </button>
+        </div>
+      </div>
+    </>
   )
 }

@@ -27,8 +27,7 @@ function Nav() {
 
   return (
     <nav>
-      <h1 className="logo">Geo Messenger</h1>
-      <section className="nav-item">
+      <section className="text-lg p-3 bg-black">
         <IfAuthenticated>
           <p>
             Hello, {user.name} {user.roles ? `(${user.roles})` : null}
@@ -40,17 +39,18 @@ function Nav() {
           </section>
         </IfAuthenticated>
         <IfNotAuthenticated>
-          {/* <section className='nav-item'> */}
-          <p>Hello, guest</p>
-          <section className="sign">
-            <a href="/" onClick={handleLogin} className="nav-link">
+          <section className="flex flex-row justify-evenly">
+            <a href="/" onClick={handleLogin} className=" nav-link text-white ">
               Sign in
             </a>
-            <a href="/" onClick={handleRegister} className="nav-link">
+            <a
+              href="/"
+              onClick={handleRegister}
+              className=" nav-link text-white "
+            >
               Register
             </a>
           </section>
-          {/* </section> */}
         </IfNotAuthenticated>
       </section>
     </nav>
