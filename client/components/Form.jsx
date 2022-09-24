@@ -66,33 +66,30 @@ function Form(props) {
   }
 
   return (
-    <div className="content-container">
-      <div className="ramform">
-        <h1>Leave your message</h1>
-        <form>
-          <div>
-            <label htmlFor="name">Name</label>
+    <div className=" text-lg p-6 rounded-md border-2 border-blue">
+      <div className="">
+        <form className=" text-lg p-6 rounded-md border-2 border-blue">
+          <textarea
+            className="w-full p-3 rounded-md border-2 border-blue placeholder-gray resize-none"
+            id="message"
+            type="text"
+            name="msg"
+            rows="4"
+            placeholder="Your message..."
+            onChange={handleChange}
+            value={form.msg}
+          ></textarea>
+
+          <div className="text-lg p-6 rounded-md border-2 border-blue">
             <input
               type="text"
               name="name"
               placeholder="Enter Your Name"
+              className="placeholder-gray-300"
               onChange={handleChange}
               value={form.name}
             />
-          </div>
 
-          <div>
-            <label htmlFor="msg">Your Message</label>
-            <input
-              type="text"
-              name="msg"
-              placeholder="Enter Your Message"
-              onChange={handleChange}
-              value={form.msg}
-            />
-          </div>
-
-          <div>
             <button type="button" onClick={handleSubmit}>
               Submit
             </button>
