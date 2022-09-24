@@ -27,7 +27,7 @@ function Nav() {
 
   return (
     <nav>
-      <h1 className="logo">Full-stack Boilerplate with Auth0</h1>
+      <h1 className="logo">Geo Messenger</h1>
       <section className="nav-item">
         <IfAuthenticated>
           <p>

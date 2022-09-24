@@ -2,12 +2,12 @@ import React, { useEffect, useState } from 'react'
 
 import { getMessages } from '../api'
 
-export default function Message() {
+export default function Message(props) {
   const [location, setLocation] = useState({
     lat: null,
     long: null,
   })
-  const [message, setMessage] = useState([])
+
   const [loader, setLoader] = useState(true)
   const [button, setButton] = useState(true)
 
@@ -15,70 +15,43 @@ export default function Message() {
     e.preventDefault()
     setButton(!button)
   }
-  // useEffect(async () => {
-  // const interval = setInterval(() => {
-  //   if (navigator.geolocation) {
 
-  //   } else {
-  //     // x.innerHTML = 'Geolocation is not supported by this browser.'
-  //     alert('Geolocation is not supported by this browser.')
-  //   }
-  // }, 1000)
-  // return () => clearInterval(interval)
-  // }
+  const accuracyOptions = {
+    enableHighAccuracy: true,
+    timeout: 5000,
+    maximumAge: 0,
+  }
 
-  // , [])
-
-  useEffect(() => {
-    setLoader(true)
-    navigator.geolocation.getCurrentPosition((position) => {
-      setLocation({
-        long: position.coords.longitude,
-        lat: position.coords.latitude,
-      })
-      getMessages({
-        long: position.coords.longitude,
-        lat: position.coords.latitude,
-      })
-        .then((res) => {
-          console.log(res)
-          setMessage(res)
-        })
-        .finally(() => setLoader(false))
-        .catch('')
-    })
-  }, [button])
-
-  //just to see location
-  //const x = document.getElementById('demo')
+  // useEffect(() => {
+  //   setLoader(true)
+  //   navigator.geolocation.getCurrentPosition((position) => {
+  //     const crd = position.coords
+  //     console.log(`Recorded latitude: ${crd.latitude}`)
+  //     console.log(`Recorded longitude: ${crd.longitude}`)
+  //     console.log(`More or less: ${crd.accuracy} meters`)
+  //     setLocation({
+  //       long: crd.longitude,
+  //       lat: crd.latitude,
+  //     })
+  // }, [button])
 
   return (
     <div>
-      <button onClick={handleClick}>Click</button>
-      {!loader ? (
+      {loader ? (
         <>
-          <h1>show cords</h1>
-          {console.log(message)}
-          {/* <p>{message}</p> */}
-
-          <p>{location.lat}</p>
-          <p>{location.long}</p>
-
-          <p>messages: {message.msg[0].msg}</p>
-          {/* <p>{message.msg[0].msg}</p>
-          <p>{message.msg[1].msg}</p> */}
-
-          {/* <p>{message.msg[0].msg}</p> */}
+          <ul>
+            {props.messages.map((messages) => (
+              <li
+                key={messages.id}
+              >{`${messages.name} says ${messages.msg}`}</li>
+            ))}
+          </ul>
           <p id="demo"></p>
-          {/* <ul>
-        {message.map((messages) => (
-          <li key={messages.id}>{message.msg}</li>
-        ))}
-      </ul> */}
         </>
       ) : (
-        <p>loading...</p>
+        <p>Searching for messages...</p>
       )}
+      <button onClick={handleClick}>Search For New Message</button>
     </div>
   )
 }
