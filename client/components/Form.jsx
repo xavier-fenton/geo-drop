@@ -1,8 +1,7 @@
-import React, { useState } from 'react'
-import { addMessages } from '../api'
+import React, { useState, useEffect } from 'react'
+import { addMessages, getMessages } from '../api'
 
-
-// import { addMessage } from '../apiClient' 
+// import { addMessage } from '../apiClient'
 
 // ADD SLICE...
 
@@ -14,10 +13,9 @@ function Form(props) {
     msg: '',
   })
 
-  const [formLocation, setFormLocation] = useState({
-    lat: null,
-    long: null,
-  })
+  // useEffect(() => {
+  //   // console.log(form)
+  // }, [form.lat, form.long])
 
   function handleChange(event) {
     setForm({
@@ -35,23 +33,36 @@ function Form(props) {
       console.log(`Recorded Form longitude: ${crd.longitude}`)
       console.log(`More or less: ${crd.accuracy} meters`)
 
-      setFormLocation((crd) => {
-        lat: crd.latitude;
-        long: crd.longitude
-      })
-
       setForm({
         name: form.name,
-        lat: formLocation.lat,
-        long: formLocation.long,
-        msg: form.msg
+        lat: crd.latitude,
+        long: crd.longitude,
+        msg: form.msg,
       })
-      console.log(form)
-      // put all this info to the database upon submission 
-      // clear the form 
+      addMessages({
+        name: form.name,
+        msg: form.msg,
+        lat: crd.latitude,
+        long: crd.longitude,
+      })
+        .then(() => {
+          setForm(
+            {
+              name: '',
+              lat: '',
+              long: '',
+              msg: '',
+            },
+
+            props.loadMessages(crd)
+          )
+        })
+        .catch((err) => {
+          console.error(err)
+        })
+      // put all this info to the database upon submission
+      // clear the form
     })
-
-
   }
 
   return (
@@ -80,7 +91,6 @@ function Form(props) {
               value={form.msg}
             />
           </div>
-
 
           <div>
             <button type="button" onClick={handleSubmit}>

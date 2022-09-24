@@ -16,6 +16,7 @@ export function getMessages(location) {
 
 export function addMessages(messageEntry) {
   const { name, lat, long, msg } = messageEntry
+  console.log(messageEntry)
 
   return request
     .post('/api/v1/messages')

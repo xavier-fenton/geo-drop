@@ -3,7 +3,7 @@ exports.up = function (knex) {
     table.increments('id').primary()
     table.integer('lat')
     table.integer('long')
-    table.integer('name')
+    table.string('name')
     table.string('msg')
   })
 }

@@ -2,12 +2,12 @@ import React, { useEffect, useState } from 'react'
 
 import { getMessages } from '../api'
 
-export default function Message() {
+export default function Message(props) {
   const [location, setLocation] = useState({
     lat: null,
     long: null,
   })
-  const [message, setMessage] = useState([])
+
   const [loader, setLoader] = useState(true)
   const [button, setButton] = useState(true)
 
@@ -19,43 +19,31 @@ export default function Message() {
   const accuracyOptions = {
     enableHighAccuracy: true,
     timeout: 5000,
-    maximumAge: 0
-  };
+    maximumAge: 0,
+  }
 
-  useEffect(() => {
-    setLoader(true)
-    navigator.geolocation.getCurrentPosition((position) => {
-      const crd = position.coords
-      console.log(`Recorded latitude: ${crd.latitude}`)
-      console.log(`Recorded longitude: ${crd.longitude}`)
-      console.log(`More or less: ${crd.accuracy} meters`)
-      setLocation({
-        long: crd.longitude,
-        lat: crd.latitude,
-      })
-      getMessages({
-        long: crd.longitude,
-        lat: crd.latitude,
-      })
-        .then((res) => {
-          console.log(res)
-          setMessage(res)
-        })
-        .finally(() => setLoader(false))
-        .catch('')
-    })
-  }, [button])
-
+  // useEffect(() => {
+  //   setLoader(true)
+  //   navigator.geolocation.getCurrentPosition((position) => {
+  //     const crd = position.coords
+  //     console.log(`Recorded latitude: ${crd.latitude}`)
+  //     console.log(`Recorded longitude: ${crd.longitude}`)
+  //     console.log(`More or less: ${crd.accuracy} meters`)
+  //     setLocation({
+  //       long: crd.longitude,
+  //       lat: crd.latitude,
+  //     })
+  // }, [button])
 
   return (
     <div>
-      {!loader ? (
+      {loader ? (
         <>
-          {console.log(message)}
           <ul>
-            {message.map((messages) => (
-
-              <li key={messages.id}>{`${messages.name} says ${messages.msg}`}</li>
+            {props.messages.map((messages) => (
+              <li
+                key={messages.id}
+              >{`${messages.name} says ${messages.msg}`}</li>
             ))}
           </ul>
           <p id="demo"></p>
