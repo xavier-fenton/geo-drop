@@ -24,10 +24,10 @@ export default function Cords() {
   }, [location])
 
   return (
-    <div className="text-lg p-6 rounded-md border-2 border-blue">
+    <div className="text-lg bg-black p-6 h-20">
       <div className="flex flex-row justify-evenly">
-        <p>{location.lat}</p>
-        <p>{location.long}</p>
+        <p className="text-white">{location.lat}</p>
+        <p className="text-white">{location.long}</p>
       </div>
     </div>
   )

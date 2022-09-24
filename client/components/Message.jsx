@@ -37,13 +37,13 @@ export default function Message(props) {
 
   return (
     <>
-      <div className="p-6 rounded-md border-2 border-blue">
+      <div className="p-6  bg-black">
         {loader ? (
-          <div className="overflow-scroll max-h-52 text-lg p-6 rounded-md border-2 border-blue">
+          <div className="overflow-scroll max-h-60 h-64  text-lg p-6 rounded-md border-2 border-blue bg-gradient-to-r from-gray-200 via-gray-400 to-gray-600">
             <ul>
               {props.messages.map((messages) => (
                 <li
-                  className="bg-blue-400 my-3 p-2 text-white border-solid border-2 border-blue-400 rounded-lg"
+                  className="bg-green-400 my-3 p-2 text-white drop-shadow-xl rounded-lg"
                   key={messages.id}
                 >{`${messages.name} says ${messages.msg}`}</li>
               ))}
@@ -52,8 +52,13 @@ export default function Message(props) {
         ) : (
           <p>Searching for messages...</p>
         )}
-        <div className="p-6 rounded-md border-2 border-blue">
-          <button onClick={handleClick}>Search For New Message</button>
+        <div className="p-3 my-3 rounded-md border-2  border-white text-center">
+          <button
+            className="text-center bg-black text-white"
+            onClick={handleClick}
+          >
+            Search Area
+          </button>
         </div>
       </div>
     </>

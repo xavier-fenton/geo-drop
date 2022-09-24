@@ -27,7 +27,7 @@ function Nav() {
 
   return (
     <nav>
-      <section className="text-lg p-3 rounded-md border-2 border-blue">
+      <section className="text-lg p-3 bg-black">
         <IfAuthenticated>
           <p>
             Hello, {user.name} {user.roles ? `(${user.roles})` : null}
@@ -40,10 +40,14 @@ function Nav() {
         </IfAuthenticated>
         <IfNotAuthenticated>
           <section className="flex flex-row justify-evenly">
-            <a href="/" onClick={handleLogin} className="nav-link">
+            <a href="/" onClick={handleLogin} className=" nav-link text-white ">
               Sign in
             </a>
-            <a href="/" onClick={handleRegister} className="nav-link">
+            <a
+              href="/"
+              onClick={handleRegister}
+              className=" nav-link text-white "
+            >
               Register
             </a>
           </section>

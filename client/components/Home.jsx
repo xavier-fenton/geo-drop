@@ -24,12 +24,13 @@ export default function Home() {
   }
 
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="w-screen bg-black">
       <Cords />
       <Logo />
-      <Nav />
+
       <Message messages={messages} />
       <Form loadMessages={loadMessages} />
+      <Nav />
     </div>
   )
 }
