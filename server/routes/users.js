@@ -24,29 +24,6 @@ router.post('/', async (req, res) => {
   }
 })
 
-// public - an endpoint that anyone can access
-// GET /api/v1/users/public
-router.get('/public', (req, res) => {
-  res.json({ message: "I'm a public endpoint, any one can access me." })
-})
-
-// protected - an endpoint that can be accessed by authenticated users
-// GET /api/v1/users/protected
-router.get('/protected', checkJwt, (req, res) => {
-  res.json({
-    message: "I'm a protected route, only authenticated users can access me.",
-  })
-})
-
-// private - an endpoint that can be accessed by users who have certain permissions
-// GET /api/v1/users/private
-router.get('/private', checkJwt, checkAdmin, (req, res) => {
-  res.json({
-    message:
-      "I'm a private route, only authorized users with 'read:my_private_route' can access me.",
-  })
-})
-
 // GET /api/v1/users/
 router.get('/', (req, res) => {
   db.getUsers()
