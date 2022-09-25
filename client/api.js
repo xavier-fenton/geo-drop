@@ -14,12 +14,12 @@ export function getMessages(location) {
     .catch(logError)
 }
 
-export function addMessages(messageEntry) {
+export function addMessages(messageEntry, token) {
   const { name, lat, long, msg } = messageEntry
-  console.log(messageEntry)
 
   return request
     .post('/api/v1/messages')
+    .set('authorization', `Bearer ${token}`)
     .send({ name, lat, long, msg })
     .then((response) => response.body)
 }
