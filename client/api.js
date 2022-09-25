@@ -5,6 +5,7 @@ const rootUrl = '/api/v1'
 // MESSAGES
 
 export function getMessages(location) {
+  console.log(location)
   return request
     .get(`${rootUrl}/messages?lat=${location.lat}&long=${location.long}`)
     .then((res) => {
