@@ -23,8 +23,7 @@ router.get('/', async (req, res) => {
 
 //POST /api/v1/messages
 router.post('/', checkJwt, (req, res) => {
-  const user = req.user
-  console.log(user)
+  const auth0Id = req.user.sub
   const { name, lat, long, msg } = req.body
 
   db.addMessage({ name, lat, long, msg })
