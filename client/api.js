@@ -24,41 +24,6 @@ export function addMessages(messageEntry) {
     .then((response) => response.body)
 }
 
-// Get Fruits
-
-export function getFruits() {
-  return request
-    .get(`${rootUrl}/fruits`)
-    .then((res) => res.body.fruits)
-    .catch(logError)
-}
-
-export function addFruit(fruit, token) {
-  return request
-    .post(`${rootUrl}/fruits`)
-    .set('authorization', `Bearer ${token}`)
-    .send({ fruit })
-    .then((res) => res.body.fruits)
-    .catch(logError)
-}
-
-export function updateFruit(fruit, token) {
-  return request
-    .put(`${rootUrl}/fruits`)
-    .set('authorization', `Bearer ${token}`)
-    .send({ fruit })
-    .then((res) => res.body.fruits)
-    .catch(logError)
-}
-
-export function deleteFruit(id, token) {
-  return request
-    .delete(`${rootUrl}/fruits/${id}`)
-    .set('authorization', `Bearer ${token}`)
-    .then((res) => res.body.fruits)
-    .catch(logError)
-}
-
 export function getUser(token) {
   return request
     .get(`${rootUrl}/users`)
