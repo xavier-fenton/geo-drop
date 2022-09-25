@@ -29,9 +29,7 @@ function Nav() {
     <nav>
       <section className="text-lg p-3 bg-black">
         <IfAuthenticated>
-          <p>
-            Hello, {user.name} {user.roles ? `(${user.roles})` : null}
-          </p>
+          <p>Hello, {user.name}</p>
           <section className="sign">
             <a href="/" onClick={handleLogoff} className="nav-link">
               Log out

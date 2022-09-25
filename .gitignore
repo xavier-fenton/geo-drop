@@ -20,3 +20,5 @@ auth_config.json
 # Editor settings
 .vscode
 .idea
+
+output.css

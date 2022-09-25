@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from 'react'
-import { addMessages, getMessages } from '../api'
-
-// import { addMessage } from '../apiClient'
+import React, { useState } from 'react'
+import { useSelector } from 'react-redux'
+import { addMessages } from '../api'
 
 // ADD SLICE...
 
 function Form(props) {
+  const token = useSelector((state) => state.user.token)
   const [form, setForm] = useState({
     name: '',
     lat: '',
@@ -39,12 +39,15 @@ function Form(props) {
         long: crd.longitude,
         msg: form.msg,
       })
-      addMessages({
-        name: form.name,
-        msg: form.msg,
-        lat: crd.latitude,
-        long: crd.longitude,
-      })
+      addMessages(
+        {
+          name: form.name,
+          msg: form.msg,
+          lat: crd.latitude,
+          long: crd.longitude,
+        },
+        token
+      )
         .then(() => {
           setForm(
             {

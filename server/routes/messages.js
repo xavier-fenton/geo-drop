@@ -1,5 +1,5 @@
 const express = require('express')
-// const checkJwt = require('../auth0')
+const { checkJwt } = require('../auth0')
 const db = require('../db/messages')
 
 const router = express.Router()
@@ -21,7 +21,9 @@ router.get('/', async (req, res) => {
   }
 })
 
-router.post('/', (req, res) => {
+//POST /api/v1/messages
+router.post('/', checkJwt, (req, res) => {
+  const auth0Id = req.user.sub
   const { name, lat, long, msg } = req.body
 
   db.addMessage({ name, lat, long, msg })

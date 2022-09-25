@@ -1,5 +1,7 @@
 const connection = require('./connection')
 
+//TODO: implement getUserById
+
 function getUsers(db = connection) {
   return db('users').select(
     'id',
