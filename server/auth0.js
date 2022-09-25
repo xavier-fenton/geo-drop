@@ -1,9 +1,8 @@
 const jwt = require('express-jwt')
 const jwks = require('jwks-rsa')
-const path = require('path')
-require('dotenv').config({ path: path.join(__dirname, '.env') })
+require('dotenv').config()
 
-const domain = process.env.AUTH0_DOMAIN
+const domain = `https://${process.env.AUTH0_DOMAIN}`
 const audience = process.env.AUTH0_AUDIENCE
 
 const checkJwt = jwt({
