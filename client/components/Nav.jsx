@@ -27,7 +27,7 @@ function Nav() {
 
   return (
     <nav>
-      <section className="text-lg p-3 bg-black">
+      <section className="bg-stone-200 text-lg p-3">
         <IfAuthenticated>
           <p className="text-white">Hello, {user.name}</p>
           <section className="sign">

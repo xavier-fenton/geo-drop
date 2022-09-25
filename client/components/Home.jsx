@@ -44,10 +44,10 @@ export default function Home() {
   }
 
   return (
-    <div className="w-screen bg-black">
+    <div className="w-screen bg-stone-200">
+      {' '}
       <Cords />
       <Logo />
-
       <Message messages={messages} />
       <div className="text-white flex justify-center mt-px">
         <p>{radius}</p>
@@ -60,9 +60,9 @@ export default function Home() {
           onChange={handleChange}
         />
       </div>
-      <div className="p-3 my-3 rounded-md border-2  border-white text-center">
+      <div className="p-3 mx-6 rounded-md border-2  border-white text-center">
         <button
-          className="text-center bg-black text-white"
+          className="text-center bg-stone-200 text-white"
           onClick={handleClick}
         >
           Search Area

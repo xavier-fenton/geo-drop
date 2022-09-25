@@ -551,6 +551,11 @@ video {
   --tw-backdrop-sepia:  ;
 }
 
+.mx-6 {
+  margin-left: 1.5rem;
+  margin-right: 1.5rem;
+}
+
 .my-3 {
   margin-top: 0.75rem;
   margin-bottom: 0.75rem;
@@ -604,8 +609,8 @@ video {
   width: 100vw;
 }
 
-.w-2\/5 {
-  width: 40%;
+.w-1\/5 {
+  width: 20%;
 }
 
 .resize-none {
@@ -661,33 +666,35 @@ video {
   border-color: rgb(255 255 255 / var(--tw-border-opacity));
 }
 
+.bg-stone-200 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(231 229 228 / var(--tw-bg-opacity));
+}
+
+.bg-blue-300 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(147 197 253 / var(--tw-bg-opacity));
+}
+
 .bg-black {
   --tw-bg-opacity: 1;
   background-color: rgb(0 0 0 / var(--tw-bg-opacity));
 }
 
-.bg-green-400 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(74 222 128 / var(--tw-bg-opacity));
+.bg-\[url\(\'images\/bluesky\.jpeg\'\)\] {
+  background-image: url('images/bluesky.jpeg');
 }
 
-.bg-gradient-to-r {
-  background-image: linear-gradient(to right, var(--tw-gradient-stops));
+.bg-cover {
+  background-size: cover;
 }
 
-.from-gray-200 {
-  --tw-gradient-from: #e5e7eb;
-  --tw-gradient-to: rgb(229 231 235 / 0);
-  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+.bg-center {
+  background-position: center;
 }
 
-.via-gray-400 {
-  --tw-gradient-to: rgb(156 163 175 / 0);
-  --tw-gradient-stops: var(--tw-gradient-from), #9ca3af, var(--tw-gradient-to);
-}
-
-.to-gray-600 {
-  --tw-gradient-to: #4b5563;
+.bg-no-repeat {
+  background-repeat: no-repeat;
 }
 
 .p-6 {
