@@ -29,9 +29,9 @@ function Nav() {
     <nav>
       <section className="text-lg p-3 bg-black">
         <IfAuthenticated>
-          <p>Hello, {user.name}</p>
+          <p className="text-white">Hello, {user.name}</p>
           <section className="sign">
-            <a href="/" onClick={handleLogoff} className="nav-link">
+            <a href="/" onClick={handleLogoff} className="nav-link text-white">
               Log out
             </a>
           </section>
