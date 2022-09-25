@@ -600,8 +600,16 @@ video {
   height: 1rem;
 }
 
-.h-1\/5 {
-  height: 20%;
+.h-96 {
+  height: 24rem;
+}
+
+.h-\[32rem\] {
+  height: 32rem;
+}
+
+.h-\[180px\] {
+  height: 180px;
 }
 
 .max-h-60 {
@@ -618,10 +626,6 @@ video {
 
 .w-2\/5 {
   width: 40%;
-}
-
-.w-1\/5 {
-  width: 20%;
 }
 
 .cursor-pointer {

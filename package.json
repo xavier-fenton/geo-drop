@@ -49,11 +49,9 @@
     "knex": "^1.0.3",
     "leaflet": "^1.9.1",
     "pg": "^8.7.1",
-    "react-leaflet": "^4.1.0",
     "react-range": "^1.8.14",
     "react-slider": "^2.0.4",
     "superagent": "7.1.1"
-    
   },
   "devDependencies": {
     "@babel/core": "^7.15.6",
@@ -81,6 +79,7 @@
     "prettier": "2.6.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "react-leaflet": "^3.2.0",
     "react-redux": "^7.2.5",
     "react-router-dom": "^6.2.2",
     "redux": "^4.1.1",
@@ -97,5 +96,4 @@
     "semi": false,
     "singleQuote": true
   }
-  
 }

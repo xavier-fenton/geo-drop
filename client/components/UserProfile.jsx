@@ -1,71 +1,33 @@
 import React, { useEffect, useState } from 'react'
+import { useSelector, useDispatch } from 'react-redux'
 import { getMessages } from '../api'
 import Nav from '../components/Nav'
+import { fetchUsers } from '../actions/user'
 
-import Home from './Home'
 import Map from './Map'
 import Message from './Message'
 
 export default function UserProfile() {
-  const [messages, setMessages] = useState([])
-  const [radius, setRadius] = useState(0.05)
+  // const dispatch = useDispatch()
 
-  function handleChange(event) {
-    setRadius(event.target.value)
-  }
+  // // state of the users
+  // const users = useSelector((state) => state.users)
 
-  async function handleClick(e) {
-    e.preventDefault()
-    await navigator.geolocation.getCurrentPosition((position) => {
-      loadMessages(position.coords)
-    })
-  }
+  // useEffect(() => {
+  //   dispatch(fetchUsers())
+  //   console.log(users)
+  // }, [])
 
-  // it retrieves the current users locations, side effect function
-
-  useEffect(() => {
-    navigator.geolocation.getCurrentPosition((position) => {
-      loadMessages(position.coords)
-    })
-
-    // call the current number of the radius
-  }, [])
-
-  // calls the api function, passes through the coordinates then sets the states of the retrived messages
-  async function loadMessages(crd) {
-    const retrievedMessages = await getMessages({
-      long: crd.longitude,
-      lat: crd.latitude,
-      r: radius,
-    })
-
-    setMessages(retrievedMessages)
-  }
+  // // pass through the user id
+  // useEffect(async () => {
+  //   await getMessages({
+  //     users: 'user',
+  //   })
+  // }, [])
 
   return (
     <>
       <Nav />
-      <Message messages={messages} />
-      <p className="mr-px flex justify-center ">{radius}</p>
-      <div className="px-6">
-        <div className="flex justify-center ">
-          <input
-            className=" h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer dark:bg-gray-700"
-            min="0.005"
-            max="0.05"
-            step="0.001"
-            type="range"
-            value={radius}
-            onChange={handleChange}
-          />
-        </div>
-        {/* <div className=" w-full p-3 my-3 rounded-md border-2 drop-shadow-xl border-blue   text-center">
-          <button className="text-center  " onClick={handleClick}>
-            Search Area
-          </button>
-        </div> */}
-      </div>
-      {/* <Form loadMessages={loadMessages} /> */}
 
       <a
         href="/"
@@ -73,7 +35,9 @@ export default function UserProfile() {
       >
         Back To Home Page
       </a>
-      <div className="h-1/5 w-1/5">{/* <Map /> */}</div>
+      <div id="map" style={{ height: '180px' }}>
+        <Map />
+      </div>
     </>
   )
 }
