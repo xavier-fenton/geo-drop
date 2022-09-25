@@ -48,6 +48,7 @@
     "jwks-rsa": "^2.0.4",
     "knex": "^1.0.3",
     "pg": "^8.7.1",
+    "react-loading": "^2.0.3",
     "react-range": "^1.8.14",
     "react-slider": "^2.0.4",
     "superagent": "7.1.1"

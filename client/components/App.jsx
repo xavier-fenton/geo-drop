@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react'
 import { useAuth0 } from '@auth0/auth0-react'
 import { cacheUser } from '../auth0-utils'
 
-
 import PingRoutes from './PingRoutes'
 import Registration from './Registration'
 import UserProfile from './UserProfile'

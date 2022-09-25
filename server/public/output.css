@@ -556,16 +556,16 @@ video {
   margin-bottom: 0.75rem;
 }
 
+.mr-px {
+  margin-right: 1px;
+}
+
 .mt-4 {
   margin-top: 1rem;
 }
 
 .mt-px {
   margin-top: 1px;
-}
-
-.mr-px {
-  margin-right: 1px;
 }
 
 .flex {
@@ -584,6 +584,10 @@ video {
   height: 5rem;
 }
 
+.h-2 {
+  height: 0.5rem;
+}
+
 .h-64 {
   height: 16rem;
 }
@@ -594,10 +598,6 @@ video {
 
 .h-4 {
   height: 1rem;
-}
-
-.h-2 {
-  height: 0.5rem;
 }
 
 .max-h-60 {
@@ -670,12 +670,13 @@ video {
   border-radius: 0.5rem;
 }
 
-.rounded {
-  border-radius: 0.25rem;
-}
-
 .border-2 {
   border-width: 2px;
+}
+
+.bg-gray-200 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(229 231 235 / var(--tw-bg-opacity));
 }
 
 .bg-green-400 {
@@ -686,11 +687,6 @@ video {
 .bg-black {
   --tw-bg-opacity: 1;
   background-color: rgb(0 0 0 / var(--tw-bg-opacity));
-}
-
-.bg-gray-200 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(229 231 235 / var(--tw-bg-opacity));
 }
 
 .bg-gradient-to-r {
@@ -733,10 +729,6 @@ video {
   padding-bottom: 0.5rem;
 }
 
-.pr-px {
-  padding-right: 1px;
-}
-
 .text-center {
   text-align: center;
 }
@@ -771,34 +763,14 @@ video {
   filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
 }
 
-.hover\:bg-sky-700:hover {
-  --tw-bg-opacity: 1;
-  background-color: rgb(3 105 161 / var(--tw-bg-opacity));
-}
-
-.hover\:bg-violet-600:hover {
-  --tw-bg-opacity: 1;
-  background-color: rgb(124 58 237 / var(--tw-bg-opacity));
-}
-
-.hover\:bg-gray-600:hover {
-  --tw-bg-opacity: 1;
-  background-color: rgb(75 85 99 / var(--tw-bg-opacity));
+.drop-shadow-2xl {
+  --tw-drop-shadow: drop-shadow(0 25px 25px rgb(0 0 0 / 0.15));
+  filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
 }
 
 .hover\:drop-shadow-xl:hover {
   --tw-drop-shadow: drop-shadow(0 20px 13px rgb(0 0 0 / 0.03)) drop-shadow(0 8px 5px rgb(0 0 0 / 0.08));
   filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
-}
-
-.active\:bg-violet-700:active {
-  --tw-bg-opacity: 1;
-  background-color: rgb(109 40 217 / var(--tw-bg-opacity));
-}
-
-.active\:bg-gray-700:active {
-  --tw-bg-opacity: 1;
-  background-color: rgb(55 65 81 / var(--tw-bg-opacity));
 }
 
 @media (prefers-color-scheme: dark) {
