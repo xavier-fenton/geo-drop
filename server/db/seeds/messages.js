@@ -40,6 +40,13 @@ exports.seed = function (knex) {
           name: 'Somewhere in tokyo',
           msg: 'Hello from TOKYO',
         },
+        {
+          id: 6,
+          lat: -37.1982336,
+          long: 174.8893696,
+          name: 'Hello From XAVIERS',
+          msg: 'testing testing 123',
+        },
       ])
     })
 }
