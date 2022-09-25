@@ -39,6 +39,7 @@ function Form(props) {
         long: crd.longitude,
         msg: form.msg,
       })
+      console.log(token)
       addMessages(
         {
           name: form.name,

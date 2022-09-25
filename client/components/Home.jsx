@@ -57,7 +57,7 @@ export default function Home() {
       {!done ? (
         <div className="flex items-center justify-center h-screen drop-shadow-2xl">
           <ReactLoading
-            type={'bubbles'}
+            type={'balls'}
             color={'black'}
             height={300}
             width={200}
