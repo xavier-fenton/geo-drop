@@ -29,8 +29,8 @@ function Nav() {
     <nav>
       <section className="text-lg p-3 bg-black">
         <IfAuthenticated>
-          <p className="text-white">Hello, {user.name}</p>
-          <section className="sign">
+          <section className="flex flex-row justify-evenly">
+            <p className="text-white">Hello, {user.name}</p>
             <a href="/" onClick={handleLogoff} className="nav-link text-white">
               Log out
             </a>
