@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import { getMessages } from '../api'
 import Nav from '../components/Nav'
+
 import Home from './Home'
-// import Home from './Home'
 import Message from './Message'
-import Form from './Form'
+
 export default function UserProfile() {
   const [messages, setMessages] = useState([])
   const [radius, setRadius] = useState(0.05)
@@ -43,9 +43,10 @@ export default function UserProfile() {
 
   return (
     <>
+      <Nav />
       <Message messages={messages} />
-      {/* <p className="mr-px flex justify-center ">{radius}</p> */}
-      {/* <div className="px-6">
+      <p className="mr-px flex justify-center ">{radius}</p>
+      <div className="px-6">
         <div className="flex justify-center ">
           <input
             className=" h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer dark:bg-gray-700"
@@ -56,14 +57,21 @@ export default function UserProfile() {
             value={radius}
             onChange={handleChange}
           />
-        </div> */}
-      {/* <div className=" w-full p-3 my-3 rounded-md border-2 drop-shadow-xl border-blue   text-center">
+        </div>
+        {/* <div className=" w-full p-3 my-3 rounded-md border-2 drop-shadow-xl border-blue   text-center">
           <button className="text-center  " onClick={handleClick}>
             Search Area
           </button>
         </div> */}
-      {/* </div> */}
+      </div>
       {/* <Form loadMessages={loadMessages} /> */}
+
+      <a
+        href="/"
+        className="flex flex-row justify-evenly text-lg p-3 drop-shadow-xl"
+      >
+        Back To Home Page
+      </a>
     </>
   )
 }
