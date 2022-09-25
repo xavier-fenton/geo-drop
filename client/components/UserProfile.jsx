@@ -73,9 +73,7 @@ export default function UserProfile() {
       >
         Back To Home Page
       </a>
-      <div className="h-1/5 w-1/5">
-        <Map />
-      </div>
+      <div className="h-1/5 w-1/5">{/* <Map /> */}</div>
     </>
   )
 }
