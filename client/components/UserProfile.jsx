@@ -3,6 +3,7 @@ import { getMessages } from '../api'
 import Nav from '../components/Nav'
 
 import Home from './Home'
+import Map from './Map'
 import Message from './Message'
 
 export default function UserProfile() {
@@ -72,6 +73,9 @@ export default function UserProfile() {
       >
         Back To Home Page
       </a>
+      <div className="h-1/5 w-1/5">
+        <Map />
+      </div>
     </>
   )
 }
