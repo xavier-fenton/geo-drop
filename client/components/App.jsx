@@ -19,7 +19,6 @@ function App() {
       <Route path="/" element={<Home />} />
       <Route path="/" element={<Users />} />
       <Route path="/" element={<PingRoutes />} />
-
       <Route path="/profile" element={<Registration />} />
     </Routes>
   )

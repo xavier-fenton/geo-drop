@@ -15,14 +15,27 @@ export function getMessages(location) {
     .catch(logError)
 }
 
+export function getMessagesByUser(token) {
+  return request
+    .get(
+      `${rootUrl}/messages`
+    )
+    .set('Authorization', `Bearer ${token}`)
+    .then((res) => {
+      return res.body
+    })
+    .catch(logError)
+}
+
 export function addMessages(messageEntry, token) {
-  const { name, lat, long, msg } = messageEntry
+  const { name, lat, long, msg, added_by_user } = messageEntry
 
   return request
-    .post('/api/v1/messages')
-    .set('authorization', `Bearer ${token}`)
-    .send({ name, lat, long, msg })
+    .post(`${rootUrl}/messages`)
+    .set('Authorization', `Bearer ${token}`)
+    .send({ name, lat, long, msg, added_by_user })
     .then((response) => response.body)
+    .catch(logError)
 }
 
 export function getUser(token) {
@@ -46,7 +59,7 @@ function logError(err) {
     throw new Error('Username already taken - please choose another')
   } else if (err.message === 'Forbidden') {
     throw new Error(
-      'Only the user who added the fruit may update and delete it'
+      'Only the user who added the Message may update and delete it'
     )
   } else {
     // eslint-disable-next-line no-console
