@@ -9,11 +9,10 @@ import { getMessages } from '../api'
 
 export default function Home() {
   const [messages, setMessages] = useState([])
-  const [radius, setRadius] = useState(0)
+  const [radius, setRadius] = useState(0.05)
 
   function handleChange(event) {
     setRadius(event.target.value)
-    console.log(radius)
   }
 
   async function handleClick(e) {
