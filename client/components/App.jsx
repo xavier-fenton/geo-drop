@@ -2,8 +2,10 @@ import React, { useState, useEffect } from 'react'
 import { useAuth0 } from '@auth0/auth0-react'
 import { cacheUser } from '../auth0-utils'
 
+
 import PingRoutes from './PingRoutes'
 import Registration from './Registration'
+import UserProfile from './UserProfile'
 
 import Users from './Users'
 
@@ -19,6 +21,7 @@ function App() {
       <Route path="/" element={<Home />} />
       <Route path="/" element={<Users />} />
       <Route path="/" element={<PingRoutes />} />
+      <Route path="/userprofile" element={<UserProfile />} />
 
       <Route path="/profile" element={<Registration />} />
     </Routes>

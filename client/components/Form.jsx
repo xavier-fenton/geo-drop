@@ -69,11 +69,11 @@ function Form(props) {
   }
 
   return (
-    <div className="p-6  bg-black">
+    <div className="p-6">
       <div className="">
         <form className="">
           <textarea
-            className="w-full p-3 rounded-md border-2 border-blue placeholder-gray resize-none "
+            className="w-full p-3 rounded-md border-2 border-blue  placeholder-gray resize-none "
             id="message"
             type="text"
             name="msg"
@@ -83,12 +83,12 @@ function Form(props) {
             value={form.msg}
           ></textarea>
 
-          <div className=" text-white p-3 rounded-md content-end border-2 border-blue bg-black">
+          <div className=" p-3 rounded-md content-end  border-2 border-blue">
             <input
               type="text"
               name="name"
               placeholder="Enter Your Name"
-              className="bg-black placeholder-gray-300"
+              className="placeholder-gray-300"
               onChange={handleChange}
               value={form.name}
             />
