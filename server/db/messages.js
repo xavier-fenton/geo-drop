@@ -3,8 +3,9 @@ const connection = require('./connection')
 function getMessage(input, db = connection) {
   const lat = Number(input.lat)
   const long = Number(input.long)
-  console.log(lat, long)
-  const r = 0.005
+  const r = Number(input.r)
+  console.log(lat, long, r)
+
   return db('messages')
     .whereBetween('lat', [lat - r, lat + r])
     .whereBetween('long', [long - r, long + r])

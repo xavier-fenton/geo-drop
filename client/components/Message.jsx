@@ -16,11 +16,11 @@ export default function Message(props) {
     setButton(!button)
   }
 
-  const accuracyOptions = {
-    enableHighAccuracy: true,
-    timeout: 5000,
-    maximumAge: 0,
-  }
+  // const accuracyOptions = {
+  //   enableHighAccuracy: true,
+  //   timeout: 5000,
+  //   maximumAge: 0,
+  // }
 
   // useEffect(() => {
   //   setLoader(true)
@@ -52,14 +52,6 @@ export default function Message(props) {
         ) : (
           <p>Searching for messages...</p>
         )}
-        <div className="p-3 my-3 rounded-md border-2  border-white text-center">
-          <button
-            className="text-center bg-black text-white"
-            onClick={handleClick}
-          >
-            Search Area
-          </button>
-        </div>
       </div>
     </>
   )

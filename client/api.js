@@ -6,9 +6,10 @@ const rootUrl = '/api/v1'
 
 export function getMessages(location) {
   return request
-    .get(`${rootUrl}/messages?lat=${location.lat}&long=${location.long}`)
+    .get(
+      `${rootUrl}/messages?lat=${location.lat}&long=${location.long}&r=${location.r}`
+    )
     .then((res) => {
-      console.log(res.body)
       return res.body
     })
     .catch(logError)

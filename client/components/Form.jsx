@@ -69,7 +69,7 @@ function Form(props) {
   }
 
   return (
-    <div className=" text-lg p-6  border-blue bg-black">
+    <div className="p-6  bg-black">
       <div className="">
         <form className="">
           <textarea

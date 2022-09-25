@@ -43,45 +43,60 @@ function Registration() {
   }
 
   return (
-    <section className="form">
-      <h2>Register Profile</h2>
-      <form className="registration">
-        <label htmlFor="auth0Id">auth0Id</label>
-        <input
-          name="auth0Id"
-          value={form.auth0Id}
-          onChange={handleChange}
-          disabled={false}
-        ></input>
+    <div className="h-screen grid place-items-center bg-black">
+      <section
+        className="flex 
+      flex-col items-center"
+      >
+        <h2 className="text-white pb-2">Set your username...</h2>
+        <form className="registration">
+          {/* <label className="text-white" htmlFor="auth0Id"></label> */}
+          <input
+            name="auth0Id"
+            value={form.auth0Id}
+            onChange={handleChange}
+            disabled={false}
+          ></input>
 
-        <label htmlFor="name">Name</label>
-        <input
-          name="name"
-          value={form.name}
-          onChange={handleChange}
-          disabled={true}
-        ></input>
+          {/* <label className="text-white" htmlFor="name">
+            Name
+          </label>
+          <input
+            name="name"
+            value={form.name}
+            onChange={handleChange}
+            disabled={true}
+          ></input>
 
-        <label htmlFor="email">Email</label>
-        <input
-          name="email"
-          value={form.email}
-          onChange={handleChange}
-          disabled={true}
-        ></input>
+          <label className="text-white" htmlFor="email">
+            Email
+          </label>
+          <input
+            name="email"
+            value={form.email}
+            onChange={handleChange}
+            disabled={true}
+          ></input>
 
-        <label htmlFor="description">Description</label>
-        <textarea
-          name="description"
-          value={form.description}
-          onChange={handleChange}
-          cols={3}
-        ></textarea>
-        <button type="button" onClick={handleClick}>
-          Register
-        </button>
-      </form>
-    </section>
+          <label className="text-white" htmlFor="description">
+            Description
+          </label>
+          <textarea
+            name="description"
+            value={form.description}
+            onChange={handleChange}
+            cols={3}
+          ></textarea> */}
+          <button
+            className="p-3 h-4 text-white text-xl"
+            type="button"
+            onClick={handleClick}
+          >
+            →
+          </button>
+        </form>
+      </section>
+    </div>
   )
 }
 

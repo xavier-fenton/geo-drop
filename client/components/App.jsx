@@ -15,14 +15,13 @@ function App() {
   cacheUser(useAuth0)
 
   return (
-    <div className="app">
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/" element={<Users />} />
-        <Route path="/" element={<PingRoutes />} />
-        <Route path="/profile" element={<Registration />} />
-      </Routes>
-    </div>
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/" element={<Users />} />
+      <Route path="/" element={<PingRoutes />} />
+
+      <Route path="/profile" element={<Registration />} />
+    </Routes>
   )
 }
 
