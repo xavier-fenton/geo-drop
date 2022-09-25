@@ -1,14 +1,8 @@
 const express = require('express')
-const jwtAuthz = require('express-jwt-authz')
-const { getUserRoles, checkJwt } = require('../auth0')
+const { checkJwt } = require('../auth0')
 
 const db = require('../db/users')
 const router = express.Router()
-
-// middleware for checking permissions (authorization)
-const checkAdmin = jwtAuthz(['read:my_private_route'], {
-  customScopeKey: 'permissions',
-})
 
 // POST /api/v1/users/protected
 router.post('/', async (req, res) => {
