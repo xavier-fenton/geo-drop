@@ -37,9 +37,9 @@ export default function Message(props) {
 
   return (
     <>
-      <div className="p-6  bg-black">
+      <div className="p-6 hover:drop-shadow-xl ">
         {loader ? (
-          <div className="overflow-scroll max-h-60 h-64  text-lg p-6 rounded-md border-2 border-blue bg-gradient-to-r from-gray-200 via-gray-400 to-gray-600">
+          <div className="overflow-scroll max-h-60 h-64 text-lg p-6 rounded-md border-2 border-blue bg-gradient-to-r from-gray-200 via-gray-400 to-gray-600">
             <ul>
               {props.messages.map((messages) => (
                 <li

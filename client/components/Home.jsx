@@ -4,12 +4,13 @@ import Message from './Message'
 import Form from './Form'
 import Nav from './Nav'
 import Logo from './Logo'
-
+import ReactLoading from 'react-loading'
 import { getMessages } from '../api'
 
 export default function Home() {
   const [messages, setMessages] = useState([])
   const [radius, setRadius] = useState(0.05)
+  const [done, setDone] = useState(false)
 
   function handleChange(event) {
     setRadius(event.target.value)
@@ -43,33 +44,53 @@ export default function Home() {
     setMessages(retrievedMessages)
   }
 
-  return (
-    <div className="w-screen bg-black">
-      <Cords />
-      <Logo />
+  // SetTimeout after things have loaded, Loader finishes at 2 seconds.
 
-      <Message messages={messages} />
-      <div className="text-white flex justify-center mt-px">
-        <p>{radius}</p>
-        <input
-          min="0.005"
-          max="0.05"
-          step="0.001"
-          type="range"
-          value={radius}
-          onChange={handleChange}
-        />
-      </div>
-      <div className="p-3 my-3 rounded-md border-2  border-white text-center">
-        <button
-          className="text-center bg-black text-white"
-          onClick={handleClick}
-        >
-          Search Area
-        </button>
-      </div>
-      <Form loadMessages={loadMessages} />
-      <Nav />
-    </div>
+  useEffect(() => {
+    setTimeout(() => {
+      setDone(true)
+    }, 2500)
+  }, [])
+
+  return (
+    <>
+      {!done ? (
+        <div className="flex items-center justify-center h-screen drop-shadow-2xl">
+          <ReactLoading
+            type={'bubbles'}
+            color={'black'}
+            height={300}
+            width={200}
+          />
+        </div>
+      ) : (
+        <div className="w-screen\">
+          <Cords />
+          <Logo />
+          <Message messages={messages} />
+          <p className="mr-px flex justify-center ">{radius}</p>
+          <div className="px-6">
+            <div className="flex justify-center ">
+              <input
+                className=" h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer dark:bg-gray-700"
+                min="0.005"
+                max="0.05"
+                step="0.001"
+                type="range"
+                value={radius}
+                onChange={handleChange}
+              />
+            </div>
+            <div className=" w-full p-3 my-3 rounded-md border-2 drop-shadow-xl border-blue   text-center">
+              <button className="text-center  " onClick={handleClick}>
+                Search Area
+              </button>
+            </div>
+          </div>
+          <Form loadMessages={loadMessages} />
+          <Nav />
+        </div>
+      )}
+    </>
   )
 }

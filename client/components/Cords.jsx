@@ -7,27 +7,24 @@ export default function Cords() {
   })
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition((position) => {
-          setLocation({
-            long: position.coords.longitude,
-            lat: position.coords.latitude,
-          })
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition((position) => {
+        setLocation({
+          long: position.coords.longitude,
+          lat: position.coords.latitude,
         })
-      } else {
-        // x.innerHTML = 'Geolocation is not supported by this browser.'
-        alert('Geolocation is not supported by this browser.')
-      }
-    }, 1000)
-    return () => clearInterval(interval)
+      })
+    } else {
+      // x.innerHTML = 'Geolocation is not supported by this browser.'
+      alert('Geolocation is not supported by this browser.')
+    }
   }, [location])
 
   return (
-    <div className="text-lg bg-black p-6 h-20">
+    <div className="text-lg p-6 h-20">
       <div className="flex flex-row justify-evenly">
-        <p className="text-white">{location.lat}</p>
-        <p className="text-white">{location.long}</p>
+        <p className="">{location.lat}</p>
+        <p className="">{location.long}</p>
       </div>
     </div>
   )
