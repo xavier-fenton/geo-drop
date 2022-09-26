@@ -43,7 +43,7 @@ export default function Message(props) {
             <ul>
               {props.messages.map((messages) => (
                 <li
-                  className="bg-no-repeat bg-cover bg-center bg-blue-300 my-3 p-2 text-white drop-shadow-xl rounded-lg"
+                  className="bg-no-repeat bg-cover bg-center bg-blue-400 my-3 p-2 text-white drop-shadow-xl rounded-lg"
                   key={messages.id}
                 >{`${messages.name} says ${messages.msg}`}</li>
               ))}

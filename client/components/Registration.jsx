@@ -43,12 +43,13 @@ function Registration() {
   }
 
   return (
-    <div className="h-screen grid place-items-center bg-black">
+    <div className="h-screen grid place-items-center bg-gradient-to-b from-stone-100 via-stone-200 to-stone-300">
       <section
         className="flex 
       flex-col items-center"
       >
-        <h2 className="text-white pb-2">Set your username...</h2>
+        <div></div>
+        <h2 className="text-black pb-2">Set your username...</h2>
         <form className="registration">
           {/* <label className="text-white" htmlFor="auth0Id"></label> */}
           <input
@@ -88,7 +89,7 @@ function Registration() {
             cols={3}
           ></textarea> */}
           <button
-            className="p-3 h-4 text-white text-xl"
+            className="p-3 h-4 text-black text-xl"
             type="button"
             onClick={handleClick}
           >

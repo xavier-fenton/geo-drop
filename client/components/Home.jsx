@@ -47,26 +47,28 @@ export default function Home() {
     <div className="w-screen bg-stone-200">
       {' '}
       <Cords />
-      <Logo />
+      {/* <Logo /> */}
       <Message messages={messages} />
-      <div className="text-white flex justify-center mt-px">
-        <p>{radius}</p>
-        <input
-          min="0.005"
-          max="0.05"
-          step="0.001"
-          type="range"
-          value={radius}
-          onChange={handleChange}
-        />
-      </div>
-      <div className="p-3 mx-6 rounded-md border-2  border-white text-center">
-        <button
-          className="text-center bg-stone-200 text-white"
-          onClick={handleClick}
-        >
-          Search Area
-        </button>
+      <div className="flex flex-row justify-evenly">
+        <div className="text-white flex justify-center mt-px">
+          {/* <p>{radius}</p> */}
+          <input
+            min="0.005"
+            max="0.05"
+            step="0.001"
+            type="range"
+            value={radius}
+            onChange={handleChange}
+          />
+        </div>
+        <div className="flex justify-center items-centre ">
+          <button
+            className="inline-block px-6 py-2 border-2 border-blue-500 text-blue-500 text-xs font-medium leading-tight uppercase rounded-full hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out"
+            onClick={handleClick}
+          >
+            Search Area
+          </button>
+        </div>
       </div>
       <Form loadMessages={loadMessages} />
       <Nav />

@@ -73,7 +73,7 @@ function Form(props) {
   }
 
   return (
-    <div className="p-6  bg-stone-200">
+    <div className="px-6 pt-6 bg-stone-200">
       <div className="">
         <div className="text-red" onClick={hideError}>
           {error && <Error />}
@@ -90,19 +90,24 @@ function Form(props) {
             value={form.msg}
           ></textarea>
 
-          <div className="bg-stone-200 text-white p-3 rounded-md content-end border-2 border-blue">
-            <input
+          <div className="bg-stone-200 text-white p-3 rounded-md content-end border-2 border-blue ">
+            {/* <input
               type="text"
-              name="name"
-              placeholder="Enter Your Name"
+              // name="name"
+              // placeholder="Enter Your Name"
               className="bg-stone-200 placeholder-gray-300"
               onChange={handleChange}
               value={form.name}
-            />
-
-            <button type="button" onClick={handleSubmit}>
-              Submit
-            </button>
+            /> */}
+            <div className="flex flex-row justify-evenly">
+              <button
+                className="inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded-full shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out"
+                type="button"
+                onClick={handleSubmit}
+              >
+                Submit
+              </button>
+            </div>
           </div>
         </form>
       </div>
