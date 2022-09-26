@@ -1,5 +1,4 @@
 exports.seed = function (knex) {
-
   return knex('messages')
     .del()
     .then(function () {
@@ -11,9 +10,9 @@ exports.seed = function (knex) {
           long: 174.7656955,
           name: 'placeholder',
           msg: 'hello from couch',
-          msg_auth0_id: 'auth0|61414f84d35ac900717bc280',
+          msg_auth0_id: 'auth0|632fb6a4b8b1424ca462bdb4',
           date_created: new Date(Date.now()),
-          image_path: '/'
+          image_path: '/',
         },
         {
           id: 2,
@@ -21,9 +20,9 @@ exports.seed = function (knex) {
           long: 174.7656955,
           name: 'placeholder',
           msg: 'Hello from pantry',
-          msg_auth0_id: 'auth0|61414f84d35ac900717bc280',
+          msg_auth0_id: 'auth0|632fb6a4b8b1424ca462bdb4',
           date_created: new Date(Date.now()),
-          image_path: '/'
+          image_path: '/',
         },
         {
           id: 3,
@@ -33,7 +32,7 @@ exports.seed = function (knex) {
           msg: 'Hello from yoga',
           msg_auth0_id: 'auth0|61414f84d35ac900717bc280',
           date_created: new Date(Date.now()),
-          image_path: '/'
+          image_path: '/',
         },
         {
           id: 4,
@@ -43,7 +42,7 @@ exports.seed = function (knex) {
           msg: 'Hello from Bensons Home',
           msg_auth0_id: 'auth0|61414f84d35ac900717bc280',
           date_created: new Date(Date.now()),
-          image_path: '/'
+          image_path: '/',
         },
         {
           id: 5,
@@ -53,7 +52,7 @@ exports.seed = function (knex) {
           msg: 'Hello from TOKYO',
           msg_auth0_id: 'auth0|61414f84d35ac900717bc280',
           date_created: new Date(Date.now()),
-          image_path: '/'
+          image_path: '/',
         },
         {
           id: 6,

@@ -28,7 +28,8 @@ router.get('/:auth0Id', async (req, res) => {
     const messageById = messagesById.map((message) => {
       return message
     })
-
+    
+  
     res.json(messageById)
   } catch (err) {
     console.error(err)
@@ -37,7 +38,6 @@ router.get('/:auth0Id', async (req, res) => {
 })
 
 router.post('/', checkJwt, (req, res) => {
-
   // here auth0Id is assumed to be passed from req.body
 
   const { auth0Id, lat, long, msg } = req.body
@@ -55,7 +55,6 @@ router.post('/', checkJwt, (req, res) => {
 })
 
 router.patch('/:messageId', checkJwt, (req, res) => {
-
   // pass on the msg from the front
   const messageId = req.params.messageId
   const updatedMessageEntry = req.body
