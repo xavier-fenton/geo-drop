@@ -19,6 +19,7 @@ export default function UserProfile() {
       </a>
       <div id="map" style={{ height: '180px' }}>
         <Map />
+        
       </div>
     </>
   )

@@ -64,14 +64,10 @@ function Registration() {
               </div>
             </div>
 
-            <div class="flex flex-col mb-2">
-              <div class=" relative ">
-                <input type="text" id="email" class=" rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-gray-300 text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" name="email" placeholder="Email" />
-              </div>
-            </div>
+
             <div class="flex w-full my-4">
               <button type="register" class="py-2 px-4  bg-blue-600 hover:bg-blue-700 focus:ring-bluee-500 focus:ring-offset-blue-200 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg ">
-                Register
+                Complete Registration
               </button>
             </div>
           </form>
