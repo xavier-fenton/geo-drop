@@ -12,10 +12,17 @@ import { useAuth0 } from '@auth0/auth0-react'
 export default function Map() {
   const [coords, setCoords] = useState([])
   // const user = useSelector((state) => state.user)
-  const { profile } = useAuth0()
+  const { isAuthenticated, user } = useAuth0()
 
   // Get User Auth
-  console.log(profile)
+
+  useEffect(() => {
+    if (user) {
+      console.log(user?.sub)
+      // make api call
+      // setState(messages)
+    }
+  }, [isAuthenticated])
 
   const updateMap = [
     // now you can add a new object to add to the array
