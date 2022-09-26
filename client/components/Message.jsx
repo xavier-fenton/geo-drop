@@ -39,7 +39,7 @@ export default function Message(props) {
     <>
       <div className="p-6  bg-stone-200">
         {loader ? (
-          <div className="bg-[url('images/bluesky.jpeg')] overflow-scroll max-h-60 h-64  text-lg p-6 rounded-md border-2 border-blue ">
+          <div className="bg-gradient-to-br from-neutral-400 via-neutral-200 to-stone-50 overflow-scroll max-h-80 h-64  text-lg p-6 rounded-md border-2 border-blue ">
             <ul>
               {props.messages.map((messages) => (
                 <li
