@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useSelector } from 'react-redux'
-import { addMessages } from '../api'
+import { addMessage } from '../api'
 
 // ADD SLICE...
 
@@ -40,7 +40,7 @@ function Form(props) {
         msg: form.msg,
       })
       console.log(token)
-      addMessages(
+      addMessage(
         {
           name: form.name,
           msg: form.msg,
