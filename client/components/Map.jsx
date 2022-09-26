@@ -16,9 +16,10 @@ export default function Map() {
 
   // Get User Auth
 
-  useEffect(() => {
+  useEffect(async () => {
     if (user) {
-      console.log(user?.sub)
+      await getMessagesById(user?.sub)
+
       // make api call
       // setState(messages)
     }
