@@ -8,6 +8,28 @@ import Map from './Map'
 import Message from './Message'
 
 export default function UserProfile() {
+
+
+
+
+  return (
+    <>
+      <Nav />
+      <a
+        href="/"
+        className="flex flex-row justify-evenly text-lg p-3 drop-shadow-xl"
+      >
+        Back To Home Page
+      </a>
+      <div id="map" style={{ height: '180px' }}>
+        <Map />
+      </div>
+    </>
+  )
+}
+
+
+
   // const dispatch = useDispatch()
 
   // // state of the users
@@ -24,20 +46,3 @@ export default function UserProfile() {
   //     users: 'user',
   //   })
   // }, [])
-
-  return (
-    <>
-      <Nav />
-
-      <a
-        href="/"
-        className="flex flex-row justify-evenly text-lg p-3 drop-shadow-xl"
-      >
-        Back To Home Page
-      </a>
-      <div id="map" style={{ height: '180px' }}>
-        <Map />
-      </div>
-    </>
-  )
-}

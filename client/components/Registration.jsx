@@ -21,6 +21,7 @@ function Registration() {
       email: user.email,
       description: user.description,
     })
+    console.log(setForm({}))
   }, [user])
 
   function handleChange(e) {
