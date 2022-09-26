@@ -17,12 +17,16 @@ export function getMessages(location) {
 
 export function addMessages(messageEntry, token) {
   const { name, lat, long, msg } = messageEntry
+  console.log(messageEntry)
 
   return request
     .post('/api/v1/messages')
-    .set('authorization', `Bearer ${token}`)
+    .set('Authorization', `Bearer ${token}`)
     .send({ name, lat, long, msg })
-    .then((response) => response.body)
+    .then((response) => {
+      console.log(response)
+      return response.body
+    })
 }
 
 export function getUser(token) {

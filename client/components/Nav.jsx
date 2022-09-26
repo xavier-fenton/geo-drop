@@ -27,25 +27,26 @@ function Nav() {
 
   return (
     <nav>
-      <section className="bg-stone-200 text-lg p-3">
+
+      <section className="text-lg p-3 drop-shadow-xl">
+
         <IfAuthenticated>
-          <p className="text-white">Hello, {user.name}</p>
-          <section className="sign">
-            <a href="/" onClick={handleLogoff} className="nav-link text-white">
+          <section className="flex flex-row justify-evenly">
+            <a href="/userprofile" className="nav-link">
+              Profile {user.name}
+            </a>
+
+            <a href="/" onClick={handleLogoff} className="nav-link">
               Log out
             </a>
           </section>
         </IfAuthenticated>
         <IfNotAuthenticated>
           <section className="flex flex-row justify-evenly">
-            <a href="/" onClick={handleLogin} className=" nav-link text-white ">
+            <a href="/" onClick={handleLogin} className=" nav-link">
               Sign in
             </a>
-            <a
-              href="/"
-              onClick={handleRegister}
-              className=" nav-link text-white "
-            >
+            <a href="/" onClick={handleRegister} className=" nav-link">
               Register
             </a>
           </section>

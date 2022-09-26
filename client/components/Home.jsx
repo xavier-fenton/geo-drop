@@ -4,12 +4,13 @@ import Message from './Message'
 import Form from './Form'
 import Nav from './Nav'
 import Logo from './Logo'
-
+import ReactLoading from 'react-loading'
 import { getMessages } from '../api'
 
 export default function Home() {
   const [messages, setMessages] = useState([])
   const [radius, setRadius] = useState(0.05)
+  const [done, setDone] = useState(false)
 
   function handleChange(event) {
     setRadius(event.target.value)
@@ -42,6 +43,14 @@ export default function Home() {
 
     setMessages(retrievedMessages)
   }
+
+  // SetTimeout after things have loaded, Loader finishes at 2 seconds.
+
+  useEffect(() => {
+    setTimeout(() => {
+      setDone(true)
+    }, 2500)
+  }, [])
 
   return (
     <div className="w-screen bg-stone-200">
