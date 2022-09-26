@@ -37,13 +37,15 @@ export default function Message(props) {
 
   return (
     <>
+
       <div className="p-6 hover:drop-shadow-xl ">
         {loader ? (
           <div className="overflow-scroll max-h-60 h-64 text-lg p-6 rounded-md border-2 border-blue bg-gradient-to-r from-gray-200 via-gray-400 to-gray-600">
+
             <ul>
               {props.messages.map((messages) => (
                 <li
-                  className="bg-green-400 my-3 p-2 text-white drop-shadow-xl rounded-lg"
+                  className="bg-no-repeat bg-cover bg-center bg-blue-300 my-3 p-2 text-white drop-shadow-xl rounded-lg"
                   key={messages.id}
                 >{`${messages.name} says ${messages.msg}`}</li>
               ))}

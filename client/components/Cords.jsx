@@ -21,6 +21,7 @@ export default function Cords() {
   }, [location])
 
   return (
+
     <div className="text-lg p-6 h-20">
       <div className="flex flex-row justify-evenly">
         <p className="">{location.lat}</p>

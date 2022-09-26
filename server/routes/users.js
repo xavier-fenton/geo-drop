@@ -32,11 +32,12 @@ router.get('/', (req, res) => {
 })
 
 // GET /api/v1/users/auth0|12334
-router.get('/:id', async (req, res) => {
-  const { id } = req.params
+router.get('/:auth0Id', async (req, res) => {
+  const { auth0Id } = req.params
 
   try {
-    res.json({ name: 'john doe' })
+    // no db get function is written here yet
+    res.json({ name: 'this route is setup just in case' })
   } catch (error) {
     console.error(error)
     res.status(500).json({ message: 'Unable to retrieve user roles' })

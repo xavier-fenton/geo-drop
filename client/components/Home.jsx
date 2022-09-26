@@ -44,6 +44,7 @@ export default function Home() {
     setMessages(retrievedMessages)
   }
 
+
   // SetTimeout after things have loaded, Loader finishes at 2 seconds.
 
   useEffect(() => {
@@ -54,6 +55,10 @@ export default function Home() {
 
   return (
     <>
+
+
+
+
       {!done ? (
         <div className="flex items-center justify-center h-screen drop-shadow-2xl">
           <ReactLoading
@@ -68,7 +73,7 @@ export default function Home() {
           <Cords />
           <Logo />
           <Message messages={messages} />
-          <p className="mr-px flex justify-center ">{radius}</p>
+          <p className="mr-px flex justify-center ">Radius: {radius}</p>
           <div className="px-6">
             <div className="flex justify-center ">
               <input
@@ -91,6 +96,12 @@ export default function Home() {
           <Nav />
         </div>
       )}
+
+
+
+
+
     </>
+
   )
 }
