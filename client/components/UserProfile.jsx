@@ -10,6 +10,7 @@ import Message from './Message'
 export default function UserProfile() {
   return (
     <>
+
       <Nav />
       <a
         href="/"
@@ -19,7 +20,7 @@ export default function UserProfile() {
       </a>
       <div id="map" style={{ height: '180px' }}>
         <Map />
-        
+
       </div>
     </>
   )
