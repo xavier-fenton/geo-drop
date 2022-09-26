@@ -14,7 +14,13 @@ function addUser(input, db = connection) {
   return db('users').insert(user)
 }
 
+function updateUser(auth0Id, updatedUserInput, db = connection) {
+  const { name, email, description } = updatedUserInput
+  return db('users').where('auth_id', auth0Id).insert({ name, email, description })
+}
 module.exports = {
   getUsers,
   addUser,
+  updateUser
 }
+
