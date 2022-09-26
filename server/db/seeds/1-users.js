@@ -10,6 +10,13 @@ exports.seed = function (knex) {
           email: 'kelmarna@email.nz',
           description: 'the awesome developer',
         },
+        {
+          id: 2,
+          auth0_id: 'auth0|632fb6a4b8b1424ca462bdb4',
+          name: 'taylor',
+          email: 'kelmarna@email.nz',
+          description: 'the awesome developer',
+        },
       ])
     })
 }
