@@ -20,7 +20,8 @@ router.post('/', async (req, res) => {
 
 // GET /api/v1/users/
 router.get('/', (req, res) => {
-  db.getUsers()
+  const auth0_id = req.user?.sub
+  db.getUsers(auth0_id)
     .then((users) => {
       res.json({ users })
       return null

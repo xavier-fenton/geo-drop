@@ -5,15 +5,34 @@ import { cacheUser } from '../auth0-utils'
 import PingRoutes from './PingRoutes'
 import Registration from './Registration'
 import UserProfile from './UserProfile'
-
+import { useNavigate, Routes, Route } from 'react-router-dom'
+import { useDispatch } from 'react-redux'
 import Users from './Users'
 
-import { Routes, Route } from 'react-router-dom'
-
 import Home from './Home'
+import { clearUser } from '../actions/user'
+import { getUsers } from '../apis/users'
 
 function App() {
   cacheUser(useAuth0)
+  //check if user is a user or not
+  const dispatch = useDispatch()
+  const navigate = useNavigate()
+  const { isAuthenticated, getAccessTokenSilently } = useAuth0()
+
+  useEffect(() => {
+    if (!isAuthenticated) {
+      dispatch(clearUser())
+    } else {
+      getAccessTokenSilently()
+        .then((token) => getUsers(token))
+        .then((userInDb) => {
+          console.log(userInDb)
+          userInDb ? navigate('/') : navigate('/profile')
+        })
+        .catch((err) => console.error(err))
+    }
+  }, [isAuthenticated])
 
   return (
     <Routes>
