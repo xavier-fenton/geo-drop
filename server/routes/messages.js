@@ -37,10 +37,30 @@ router.get('/:auth0Id', async (req, res) => {
 })
 
 router.post('/', checkJwt, (req, res) => {
-  const { name, lat, long, msg } = req.body
+
+  // here auth0Id is assumed to be passed from req.body
+
+  const { auth0Id, lat, long, msg } = req.body
   console.log(req.body)
 
-  db.addMessage({ name, lat, long, msg })
+  db.addMessage({ auth0Id, lat, long, msg })
+    .then(() => {
+      res.sendStatus(201)
+      return null
+    })
+    .catch((err) => {
+      console.error(err)
+      res.status(500).json({ message: 'error in server' })
+    })
+})
+
+router.patch('/:messageId', checkJwt, (req, res) => {
+
+  // pass on the msg from the front
+  const messageEntry = req.body
+  console.log(req.body)
+
+  db.updateMessage(messageEntry)
     .then(() => {
       res.sendStatus(201)
       return null

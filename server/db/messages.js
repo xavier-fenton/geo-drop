@@ -11,7 +11,7 @@ function getMessage(input, db = connection) {
   return db('messages')
     .whereBetween('lat', [lat - r, lat + r])
     .whereBetween('long', [long - r, long + r])
-    .select('msg', 'msg_auth0_id as auth0Id', 'date_created as dateCreated', 'image_path as imagePath', 'lat', 'long')
+    .select('msg', 'msg_auth0_id as auth0Id', 'date_created as dateCreated', 'image_path as imagePath', 'lat', 'long', 'id as messageId')
 }
 
 function getMessagesById(auth0Id, db = connection) {
@@ -23,6 +23,7 @@ function getMessagesById(auth0Id, db = connection) {
       'users.name as name',
       'users.email as email',
       'users.description as description',
+      'messages.id as messageId',
       'messages.lat as lat',
       'messages.long as long',
       'messages.name as ignoreName',
@@ -32,18 +33,18 @@ function getMessagesById(auth0Id, db = connection) {
     )
 }
 
-function addMessage(auth0Id, messageEntry, db = connection) {
+function addMessage(messageEntry, db = connection) {
   const messageEntryInput = {
     lat: messageEntry.lat,
     long: messageEntry.long,
     msg: messageEntry.msg,
-    msg_auth0_id: auth0Id,
+    msg_auth0_id: messageEntry.auth0Id,
     date_created: new Date(Date.now())
   }
   return db('messages').insert(messageEntryInput)
 }
 
-function updateMessage(messageId, auth0Id, updatedMessageEntry, db = connection) {
+function updateMessage(messageId, updatedMessageEntry, db = connection) {
   const updatedMessageEntryInput = {
     msg: updatedMessageEntry.msg,
     date_created: new Date(Date.now())
