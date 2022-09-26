@@ -45,6 +45,7 @@ function Form(props) {
         long: crd.longitude,
         msg: form.msg,
       })
+      console.log(token)
       addMessages(
         {
           name: form.name,
@@ -73,14 +74,16 @@ function Form(props) {
   }
 
   return (
-    <div className="p-6  bg-stone-200">
+
+    <div className="p-6">
+
       <div className="">
         <div className="text-red" onClick={hideError}>
           {error && <Error />}
         </div>
         <form className="">
           <textarea
-            className="w-full p-3 rounded-md border-2 border-blue placeholder-gray resize-none "
+            className="w-full p-3 rounded-md border-2 border-blue  placeholder-gray resize-none "
             id="message"
             type="text"
             name="msg"
@@ -90,12 +93,15 @@ function Form(props) {
             value={form.msg}
           ></textarea>
 
-          <div className="bg-stone-200 text-white p-3 rounded-md content-end border-2 border-blue">
+
+          <div className=" p-3 rounded-md content-end  border-2 border-blue">
             <input
               type="text"
               name="name"
               placeholder="Enter Your Name"
-              className="bg-stone-200 placeholder-gray-300"
+
+              className="placeholder-gray-300"
+
               onChange={handleChange}
               value={form.name}
             />
