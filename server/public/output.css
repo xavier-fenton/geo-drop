@@ -568,6 +568,10 @@ video {
   margin-top: 1px;
 }
 
+.mb-6 {
+  margin-bottom: 1.5rem;
+}
+
 .flex {
   display: flex;
 }
@@ -586,6 +590,10 @@ video {
 
 .h-2 {
   height: 0.5rem;
+}
+
+.h-full {
+  height: 100%;
 }
 
 .h-64 {
