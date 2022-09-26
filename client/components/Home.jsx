@@ -26,11 +26,14 @@ export default function Home() {
   // it retrieves the current users locations, side effect function
 
   useEffect(() => {
+    // get current location
     navigator.geolocation.getCurrentPosition((position) => {
       loadMessages(position.coords)
     })
+    
 
-    // call the current number of the radius
+
+   
   }, [])
 
   // calls the api function, passes through the coordinates then sets the states of the retrived messages
