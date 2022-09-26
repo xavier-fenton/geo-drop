@@ -600,18 +600,6 @@ video {
   height: 1rem;
 }
 
-.h-96 {
-  height: 24rem;
-}
-
-.h-\[32rem\] {
-  height: 32rem;
-}
-
-.h-\[180px\] {
-  height: 180px;
-}
-
 .max-h-60 {
   max-height: 15rem;
 }
