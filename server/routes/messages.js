@@ -57,10 +57,11 @@ router.post('/', checkJwt, (req, res) => {
 router.patch('/:messageId', checkJwt, (req, res) => {
 
   // pass on the msg from the front
-  const messageEntry = req.body
+  const messageId = req.params.messageId
+  const updatedMessageEntry = req.body
   console.log(req.body)
 
-  db.updateMessage(messageEntry)
+  db.updateMessage(messageId, updatedMessageEntry)
     .then(() => {
       res.sendStatus(201)
       return null
