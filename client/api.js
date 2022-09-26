@@ -17,16 +17,14 @@ export function getMessages(location) {
 
 export function getMessagesById(auth0Id, token) {
   return request
-    .get(
-      `${rootUrl}/messages/${auth0Id}`
-    )
+    .get(`${rootUrl}/messages/${auth0Id}`)
     .set('Authorization', `Bearer ${token}`)
     .then((res) => {
+      
       return res.body
     })
     .catch(logError)
 }
-
 
 // messageEntry body will require auth0Id
 export function addMessage(messageEntry, token) {

@@ -7,10 +7,11 @@ import React, { useState, useEffect } from 'react'
 
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
 import { useAuth0 } from '@auth0/auth0-react'
+import { getMessagesById } from '../api'
 
 //map
 export default function Map() {
-  const [coords, setCoords] = useState([])
+  const [messages, setMessage] = useState([])
   // const user = useSelector((state) => state.user)
   const { isAuthenticated, user } = useAuth0()
 
@@ -18,30 +19,13 @@ export default function Map() {
 
   useEffect(async () => {
     if (user) {
-      await getMessagesById(user?.sub)
+      const userMessages = await getMessagesById(user.sub)
 
       // make api call
-      // setState(messages)
+      setMessage(userMessages)
+      console.log(userMessages)
     }
   }, [isAuthenticated])
-
-  const updateMap = [
-    // now you can add a new object to add to the array
-
-    { lat: -36.85328, lng: 174.767874 },
-    { lat: -36.8682574, lng: 174.7656955 },
-    { lat: -36.848976, lng: 174.75951 },
-    { lat: -36.8682574, lng: 174.7656955 },
-    { lat: -35.689487, lng: 174.7656955 },
-    { lat: -36.852913, lng: 174.757745 },
-  ]
-
-  useEffect(() => {
-    setCoords(updateMap)
-    console.log(updateMap)
-  }, [])
-
-  // console.log(user.name)
 
   return (
     <MapContainer
@@ -50,10 +34,10 @@ export default function Map() {
       zoom={11}
       scrollWheelZoom={true}
     >
-      {coords.map(({ lat, lng }, index) => (
-        <Marker position={[lat, lng]} key={index}>
+      {messages.map(({ lat, long, msg }, index) => (
+        <Marker position={[lat, long]} key={index}>
           <Popup>
-            {index + 1} is for popup with lat: {lat} and lon {lng}
+            {msg}
           </Popup>
         </Marker>
       ))}

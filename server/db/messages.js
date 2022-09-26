@@ -1,7 +1,6 @@
 const connection = require('./connection')
 
 function getMessage(input, db = connection) {
-
   const lat = Number(input.lat)
   const long = Number(input.long)
   const r = Number(input.r)
@@ -11,10 +10,19 @@ function getMessage(input, db = connection) {
   return db('messages')
     .whereBetween('lat', [lat - r, lat + r])
     .whereBetween('long', [long - r, long + r])
-    .select('msg', 'msg_auth0_id as auth0Id', 'date_created as dateCreated', 'image_path as imagePath', 'lat', 'long', 'id as messageId')
+    .select(
+      'msg',
+      'msg_auth0_id as auth0Id',
+      'date_created as dateCreated',
+      'image_path as imagePath',
+      'lat',
+      'long',
+      'id as messageId'
+    )
 }
 
 function getMessagesById(auth0Id, db = connection) {
+  console.log(auth0Id)
   return db('users')
     .join('messages', 'users.auth0_id', 'messages.msg_auth0_id')
     .where('users.auth0_id', auth0Id)
@@ -39,7 +47,7 @@ function addMessage(messageEntry, db = connection) {
     long: messageEntry.long,
     msg: messageEntry.msg,
     msg_auth0_id: messageEntry.auth0Id,
-    date_created: new Date(Date.now())
+    date_created: new Date(Date.now()),
   }
   return db('messages').insert(messageEntryInput)
 }
@@ -47,14 +55,17 @@ function addMessage(messageEntry, db = connection) {
 function updateMessage(messageId, updatedMessageEntry, db = connection) {
   const updatedMessageEntryInput = {
     msg: updatedMessageEntry.msg,
-    date_created: new Date(Date.now())
+    date_created: new Date(Date.now()),
   }
-  return db('messages').select().where('id', messageId).update(updatedMessageEntryInput)
+  return db('messages')
+    .select()
+    .where('id', messageId)
+    .update(updatedMessageEntryInput)
 }
 
 module.exports = {
   getMessage,
   addMessage,
   getMessagesById,
-  updateMessage
+  updateMessage,
 }
