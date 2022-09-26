@@ -1,5 +1,5 @@
 exports.seed = function (knex) {
-  // Deletes ALL existing entries
+
   return knex('messages')
     .del()
     .then(function () {
@@ -9,41 +9,51 @@ exports.seed = function (knex) {
           id: 1,
           lat: -36.8682574,
           long: 174.7656955,
-          name: 'taylor',
+          name: 'placeholder',
           msg: 'hello from couch',
-          msg_auth0_id: 'auth0|61414f84d35ac900717bc280'
+          msg_auth0_id: 'auth0|61414f84d35ac900717bc280',
+          date_created: new Date(Date.now()),
+          image_path: '/'
         },
         {
           id: 2,
           lat: -36.8682574,
           long: 174.7656955,
-          name: 'frey',
+          name: 'placeholder',
           msg: 'Hello from pantry',
-          msg_auth0_id: 'auth0|61414f84d35ac900717bc280'
+          msg_auth0_id: 'auth0|61414f84d35ac900717bc280',
+          date_created: new Date(Date.now()),
+          image_path: '/'
         },
         {
           id: 3,
           lat: -36.8682574,
           long: 174.7656955,
-          name: 'xavier',
+          name: 'placeholder',
           msg: 'Hello from yoga',
-          msg_auth0_id: 'auth0|61414f84d35ac900717bc280'
+          msg_auth0_id: 'auth0|61414f84d35ac900717bc280',
+          date_created: new Date(Date.now()),
+          image_path: '/'
         },
         {
           id: 4,
           lat: -36.8682574,
           long: 174.7656955,
-          name: 'benson',
+          name: 'placeholder',
           msg: 'Hello from Bensons Home',
-          msg_auth0_id: 'auth0|61414f84d35ac900717bc280'
+          msg_auth0_id: 'auth0|61414f84d35ac900717bc280',
+          date_created: new Date(Date.now()),
+          image_path: '/'
         },
         {
           id: 5,
           lat: 35.689487,
           long: 174.7656955,
-          name: 'Somewhere in tokyo',
+          name: 'placeholder',
           msg: 'Hello from TOKYO',
-          msg_auth0_id: 'auth0|61414f84d35ac900717bc280'
+          msg_auth0_id: 'auth0|61414f84d35ac900717bc280',
+          date_created: new Date(Date.now()),
+          image_path: '/'
         },
       ])
     })
