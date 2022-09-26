@@ -44,6 +44,7 @@ export default function Home() {
     setMessages(retrievedMessages)
   }
 
+
   // SetTimeout after things have loaded, Loader finishes at 2 seconds.
 
   useEffect(() => {
@@ -92,5 +93,6 @@ export default function Home() {
         </div>
       )}
     </>
+
   )
 }

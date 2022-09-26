@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { useSelector } from 'react-redux'
 import { addMessages } from '../api'
+import Error from './Error'
 
 // ADD SLICE...
 
@@ -13,6 +14,11 @@ function Form(props) {
     msg: '',
   })
 
+  const [error, setError] = useState('')
+  const hideError = () => {
+    //   error msg config
+    setError('')
+  }
   // useEffect(() => {
   //   // console.log(form)
   // }, [form.lat, form.long])
@@ -61,17 +67,20 @@ function Form(props) {
             props.loadMessages(crd)
           )
         })
-        .catch((err) => {
-          console.error(err)
-        })
+        .catch((err) => setError(err.message))
       // put all this info to the database upon submission
       // clear the form
     })
   }
 
   return (
+
     <div className="p-6">
+
       <div className="">
+        <div className="text-red" onClick={hideError}>
+          {error && <Error />}
+        </div>
         <form className="">
           <textarea
             className="w-full p-3 rounded-md border-2 border-blue  placeholder-gray resize-none "
@@ -84,12 +93,15 @@ function Form(props) {
             value={form.msg}
           ></textarea>
 
+
           <div className=" p-3 rounded-md content-end  border-2 border-blue">
             <input
               type="text"
               name="name"
               placeholder="Enter Your Name"
+
               className="placeholder-gray-300"
+
               onChange={handleChange}
               value={form.name}
             />
