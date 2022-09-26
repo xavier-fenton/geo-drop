@@ -20,7 +20,6 @@ export function getMessagesById(auth0Id, token) {
     .get(`${rootUrl}/messages/${auth0Id}`)
     .set('Authorization', `Bearer ${token}`)
     .then((res) => {
-      
       return res.body
     })
     .catch(logError)
@@ -29,7 +28,8 @@ export function getMessagesById(auth0Id, token) {
 // messageEntry body will require auth0Id
 export function addMessage(messageEntry, token) {
   const { auth0Id, lat, long, msg } = messageEntry
-  console.log(messageEntry)
+  console.log(`this is the message entry ${messageEntry}`)
+  console.log('hits the api')
 
   return request
     .post('/api/v1/messages')

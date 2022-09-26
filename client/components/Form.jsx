@@ -2,13 +2,14 @@ import React, { useState } from 'react'
 import { useSelector } from 'react-redux'
 import { addMessage } from '../api'
 import Error from './Error'
+import { useAuth0 } from '@auth0/auth0-react'
 
 // ADD SLICE...
 
 function Form(props) {
-  const token = useSelector((state) => state.user.token)
+  const {  user, getAccessTokenSilently } = useAuth0()
   const [form, setForm] = useState({
-    name: '',
+    auth0Id: '',
     lat: '',
     long: '',
     msg: '',
@@ -33,6 +34,7 @@ function Form(props) {
   async function handleSubmit(event) {
     event.preventDefault()
 
+
     await navigator.geolocation.getCurrentPosition((position) => {
       const crd = position.coords
       console.log(`Recorded Form latitude: ${crd.latitude}`)
@@ -40,25 +42,29 @@ function Form(props) {
       console.log(`More or less: ${crd.accuracy} meters`)
 
       setForm({
-        name: form.name,
+        auth0Id: user.sub,
         lat: crd.latitude,
         long: crd.longitude,
         msg: form.msg,
       })
-      console.log(token)
-      addMessage(
-        {
-          name: form.name,
-          msg: form.msg,
-          lat: crd.latitude,
-          long: crd.longitude,
-        },
-        token
-      )
+      console.log(form)
+      getAccessTokenSilently()
+        .then((token) => {
+          return addMessage(
+            {
+              auth0Id: user.sub,
+              msg: form.msg,
+              lat: crd.latitude,
+              long: crd.longitude,
+            },
+
+            token
+          )
+        })
         .then(() => {
           setForm(
             {
-              name: '',
+              auth0Id: '',
               lat: '',
               long: '',
               msg: '',
@@ -71,12 +77,11 @@ function Form(props) {
       // put all this info to the database upon submission
       // clear the form
     })
+    console.log(`this is forminput: ${form}`)
   }
 
   return (
-
     <div className="p-6">
-
       <div className="">
         <div className="text-red" onClick={hideError}>
           {error && <Error />}
@@ -93,15 +98,12 @@ function Form(props) {
             value={form.msg}
           ></textarea>
 
-
           <div className=" p-3 rounded-md content-end  border-2 border-blue">
             <input
               type="text"
               name="name"
               placeholder="Enter Your Name"
-
               className="placeholder-gray-300"
-
               onChange={handleChange}
               value={form.name}
             />
