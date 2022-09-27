@@ -44,29 +44,37 @@ export default function Home() {
     setMessages(retrievedMessages)
   }
 
-
   // SetTimeout after things have loaded, Loader finishes at 2 seconds.
 
+  // useEffect(() => {
+  //   setTimeout(() => {
+  //     setDone(true)
+  //   }, 2500)
+  // }, [])
+
   useEffect(() => {
-    setTimeout(() => {
-      setDone(true)
-    }, 2500)
+    const timer = setTimeout(() => setDone(true), 1000)
+    return () => clearTimeout(timer)
   }, [])
 
   return (
     <>
-
-
-
-
       {!done ? (
-        <div className="flex items-center justify-center h-screen drop-shadow-2xl">
-          <ReactLoading
-            type={'balls'}
-            color={'black'}
-            height={300}
-            width={200}
-          />
+        <div className="flex flex-col items-center h-screen justify-center drop-shadow-2xl">
+          <section className="">
+            <img src="images/12.png" alt="" />
+          </section>
+          <section>
+            <ReactLoading
+              type={'bubbles'}
+              color={'gray'}
+              height={200}
+              width={100}
+            />
+          </section>
+          <section className="text-gray-200">
+            <p>Copyright © 2022 · GeoMessenger</p>
+          </section>
         </div>
       ) : (
         <div className="w-screen\">
@@ -96,12 +104,6 @@ export default function Home() {
           <Nav />
         </div>
       )}
-
-
-
-
-
     </>
-
   )
 }

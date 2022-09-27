@@ -4,6 +4,7 @@ import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
 import { useAuth0 } from '@auth0/auth0-react'
 import { getMessagesById } from '../api'
 import Bio from './Bio'
+import moment from 'moment/moment'
 
 //map
 export default function Map() {
@@ -19,7 +20,6 @@ export default function Map() {
 
       // make api call
       setMessage(userMessages)
-      console.log(userMessages)
     }
   }, [isAuthenticated])
 
@@ -40,6 +40,21 @@ export default function Map() {
         ))}
         <TileLayer url="https://api.mapbox.com/styles/v1/mapbox/streets-v11/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWljaGFlbC1yIiwiYSI6ImNrZXM1Zm9iaDJiNmYycW1za2dobDZ4d3gifQ.a5mK2DxNqWhlzvoa8Zxb2Q" />
       </MapContainer>
+      <ul>
+        {messages.map((message) => (
+          <>
+            <li key={message.messageId}>
+              <section className="bg-no-repeat bg-cover bg-center bg-blue-300 my-3 p-2 text-white drop-shadow-xl rounded-lg">
+                {`${message.msg}`}
+              </section>
+
+              <section className="text-gray-400 text-sm">
+                {`${moment(message.dateCreated).format('DD/MM/YYYY HH:MM:SS')}`}
+              </section>
+            </li>
+          </>
+        ))}
+      </ul>
     </>
   )
 }

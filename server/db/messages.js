@@ -7,17 +7,22 @@ function getMessage(input, db = connection) {
 
   console.log(lat, long, r)
 
-  return db('messages')
-    .whereBetween('lat', [lat - r, lat + r])
-    .whereBetween('long', [long - r, long + r])
+  return db('users')
+    .join('messages', 'users.auth0_id', 'messages.msg_auth0_id')
+    .whereBetween('messages.lat', [lat - r, lat + r])
+    .whereBetween('messages.long', [long - r, long + r])
     .select(
-      'msg',
-      'msg_auth0_id as auth0Id',
-      'date_created as dateCreated',
-      'image_path as imagePath',
-      'lat',
-      'long',
-      'id as messageId'
+      'users.auth0_id as auth0Id',
+      'users.name as name',
+      'users.email as email',
+      'users.description as description',
+      'messages.id as messageId',
+      'messages.lat as lat',
+      'messages.long as long',
+      'messages.name as ignoreName',
+      'messages.msg as msg',
+      'messages.date_created as dateCreated',
+      'messages.image_path as imagePath'
     )
 }
 

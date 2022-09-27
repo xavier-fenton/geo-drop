@@ -1,14 +1,15 @@
-import React, { useState } from 'react'
-import { useSelector } from 'react-redux'
+import React, { useState, useEffect } from 'react'
+
 import { addMessage } from '../api'
 import Error from './Error'
+import { useAuth0 } from '@auth0/auth0-react'
 
 // ADD SLICE...
 
 function Form(props) {
-  const token = useSelector((state) => state.user.token)
+  const { user, getAccessTokenSilently, isAuthenticated } = useAuth0()
   const [form, setForm] = useState({
-    name: '',
+    auth0Id: '',
     lat: '',
     long: '',
     msg: '',
@@ -19,7 +20,13 @@ function Form(props) {
     //   error msg config
     setError('')
   }
- 
+
+  useEffect(() => {
+    if (!isAuthenticated) {
+      setError('Please sign up to post')
+    }
+  }, [isAuthenticated])
+
 
   function handleChange(event) {
     setForm({
@@ -38,25 +45,29 @@ function Form(props) {
       console.log(`More or less: ${crd.accuracy} meters`)
 
       setForm({
-        name: form.name,
+        auth0Id: user.sub,
         lat: crd.latitude,
         long: crd.longitude,
         msg: form.msg,
       })
-      console.log(token)
-      addMessage(
-        {
-          name: form.name,
-          msg: form.msg,
-          lat: crd.latitude,
-          long: crd.longitude,
-        },
-        token
-      )
+      console.log(form)
+      getAccessTokenSilently()
+        .then((token) => {
+          return addMessage(
+            {
+              auth0Id: user.sub,
+              msg: form.msg,
+              lat: crd.latitude,
+              long: crd.longitude,
+            },
+
+            token
+          )
+        })
         .then(() => {
           setForm(
             {
-              name: '',
+              auth0Id: '',
               lat: '',
               long: '',
               msg: '',
@@ -69,12 +80,11 @@ function Form(props) {
       // put all this info to the database upon submission
       // clear the form
     })
+    console.log(`this is forminput: ${form}`)
   }
 
   return (
-
     <div className="p-6">
-
       <div className="">
         <div className="text-red" onClick={hideError}>
           {error && <Error />}
@@ -91,20 +101,13 @@ function Form(props) {
             value={form.msg}
           ></textarea>
 
-
-          <div className=" p-3 rounded-md content-end  border-2 border-blue">
-            <input
-              type="text"
-              name="name"
-              placeholder="Enter Your Name"
-
-              className="placeholder-gray-300"
-
-              onChange={handleChange}
-              value={form.name}
-            />
-
-            <button type="button" onClick={handleSubmit}>
+          <div className="flex justify-center px-4 py-2  text-base rounded-full text-indigo-500 border border-indigo-500 undefined ">
+            <button
+              type="button"
+              onClick={handleSubmit}
+              disabled={!isAuthenticated}
+              className={!isAuthenticated ? 'text-gray-400' : 'text-black'}
+            >
               Submit
             </button>
           </div>
