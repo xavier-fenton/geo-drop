@@ -13,10 +13,10 @@ import { Auth0Provider } from '@auth0/auth0-react'
 document.addEventListener('DOMContentLoaded', () => {
   render(
     <Auth0Provider
-      domain={config.domain}
-      clientId={config.clientId}
+      domain="dev-x1yeo0t0.us.auth0.com"
+      clientId="W5OBihWdatKJdb2hjl8suKvMbWDOXhti"
       redirectUri={window.location.origin}
-      audience={config.audience}
+      audience="https://geomessenger/api"
     >
       <Provider store={store}>
         <Router>
