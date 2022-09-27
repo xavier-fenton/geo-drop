@@ -12,7 +12,6 @@ import { useDispatch } from 'react-redux'
 import Users from './Users'
 import Landing from './Landing'
 
-import Home from './Home'
 import { clearUser } from '../actions/user'
 import { getUsers } from '../apis/users'
 
