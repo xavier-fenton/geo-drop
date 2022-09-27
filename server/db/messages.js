@@ -1,6 +1,7 @@
 const connection = require('./connection')
 
 function getMessage(input, db = connection) {
+  
   const lat = Number(input.lat)
   const long = Number(input.long)
   const r = Number(input.r)

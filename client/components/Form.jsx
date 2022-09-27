@@ -24,6 +24,8 @@ function Form(props) {
   useEffect(() => {
     if (!isAuthenticated) {
       setError('Please sign up to post')
+    } else {
+      setError('')
     }
   }, [isAuthenticated])
 
@@ -105,7 +107,7 @@ function Form(props) {
               type="button"
               onClick={handleSubmit}
               disabled={!isAuthenticated}
-              className={!isAuthenticated ? 'text-gray-400' : 'text-green'}
+              className={!isAuthenticated ? 'text-gray-400' : 'text-black'}
             >
               Submit
             </button>
