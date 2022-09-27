@@ -1,5 +1,5 @@
-import React, { useState } from 'react'
-import { useSelector } from 'react-redux'
+import React, { useState, useEffect } from 'react'
+
 import { addMessage } from '../api'
 import Error from './Error'
 import { useAuth0 } from '@auth0/auth0-react'
@@ -7,7 +7,7 @@ import { useAuth0 } from '@auth0/auth0-react'
 // ADD SLICE...
 
 function Form(props) {
-  const {  user, getAccessTokenSilently } = useAuth0()
+  const { user, getAccessTokenSilently, isAuthenticated } = useAuth0()
   const [form, setForm] = useState({
     auth0Id: '',
     lat: '',
@@ -20,9 +20,12 @@ function Form(props) {
     //   error msg config
     setError('')
   }
-  // useEffect(() => {
-  //   // console.log(form)
-  // }, [form.lat, form.long])
+
+  useEffect(() => {
+    if (!isAuthenticated) {
+      setError('Please sign up to post')
+    }
+  }, [isAuthenticated])
 
   function handleChange(event) {
     setForm({
@@ -33,7 +36,6 @@ function Form(props) {
 
   async function handleSubmit(event) {
     event.preventDefault()
-
 
     await navigator.geolocation.getCurrentPosition((position) => {
       const crd = position.coords
@@ -98,17 +100,13 @@ function Form(props) {
             value={form.msg}
           ></textarea>
 
-          <div className=" p-3 rounded-md content-end  border-2 border-blue">
-            <input
-              type="text"
-              name="name"
-              placeholder="Enter Your Name"
-              className="placeholder-gray-300"
-              onChange={handleChange}
-              value={form.name}
-            />
-
-            <button type="button" onClick={handleSubmit}>
+          <div className="flex justify-center px-4 py-2  text-base rounded-full text-indigo-500 border border-indigo-500 undefined ">
+            <button
+              type="button"
+              onClick={handleSubmit}
+              disabled={!isAuthenticated}
+              className={!isAuthenticated && 'text-gray-400'}
+            >
               Submit
             </button>
           </div>
