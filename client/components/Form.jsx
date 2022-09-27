@@ -100,7 +100,7 @@ function Form(props) {
             value={form.msg}
           ></textarea>
 
-          <div className="flex justify-center p-3 rounded-md content-end  border-2 border-blue">
+          <div className="flex justify-center px-4 py-2  text-base rounded-full text-indigo-500 border border-indigo-500 undefined ">
             <button
               type="button"
               onClick={handleSubmit}
