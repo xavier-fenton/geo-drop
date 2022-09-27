@@ -28,9 +28,9 @@ export default function Map() {
       <Bio />
 
       <MapContainer
-        className="h-full rounded-lg mb-6"
+        className="h-full mx-6 rounded-lg mb-6"
         center={{ lat: -36.8682574, lng: 174.7656955 }}
-        zoom={12}
+        zoom={14}
         scrollWheelZoom={true}
       >
         {messages.map(({ lat, long, msg }, index) => (

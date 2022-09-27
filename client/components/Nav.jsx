@@ -24,12 +24,10 @@ function Nav() {
 
   return (
     <nav>
-
       <section className="text-lg p-3 drop-shadow-xl">
-
         <IfAuthenticated>
           <section className="flex flex-row justify-evenly">
-            <a href="/userprofile" className="nav-link">
+            <a href="/userprofile" className="nav-link  ">
               Profile {user.name}
             </a>
 
