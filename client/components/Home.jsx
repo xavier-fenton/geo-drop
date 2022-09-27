@@ -9,7 +9,7 @@ import { getMessages } from '../api'
 
 export default function Home() {
   const [messages, setMessages] = useState([])
-  const [radius, setRadius] = useState(0.05)
+  const [radius, setRadius] = useState(0.005)
   const [done, setDone] = useState(false)
 
   function handleChange(event) {
@@ -81,11 +81,11 @@ export default function Home() {
           <Cords />
           <Logo />
           <Message messages={messages} />
-          <p className="mr-px flex justify-center ">Radius: {radius}</p>
+          <p className="mr-px flex justify-center ">radius</p>
           <div className="px-6">
             <div className="flex justify-center ">
               <input
-                className=" h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer dark:bg-gray-700"
+                className="w-full h-2 ark:bg-gray-700"
                 min="0.005"
                 max="0.05"
                 step="0.001"
@@ -94,7 +94,7 @@ export default function Home() {
                 onChange={handleChange}
               />
             </div>
-            <div className=" w-full p-3 my-3 rounded-md border-2 drop-shadow-xl border-blue   text-center">
+            <div className=" w-full p-3 my-3 rounded-full border-2 drop-shadow-xl border-blue   text-center btn btn-outline btn-success">
               <button className="text-center  " onClick={handleClick}>
                 Search Area
               </button>

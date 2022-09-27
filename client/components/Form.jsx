@@ -27,7 +27,6 @@ function Form(props) {
     }
   }, [isAuthenticated])
 
-
   function handleChange(event) {
     setForm({
       ...form,
@@ -101,12 +100,12 @@ function Form(props) {
             value={form.msg}
           ></textarea>
 
-          <div className="flex justify-center px-4 py-2  text-base rounded-full text-indigo-500 border border-indigo-500 undefined ">
+          <div className="flex justify-center px-4 py-2  w-full p-3 my-3 rounded-full border-2 drop-shadow-xl border-blue   text-center btn btn-outline btn-success ">
             <button
               type="button"
               onClick={handleSubmit}
               disabled={!isAuthenticated}
-              className={!isAuthenticated ? 'text-gray-400' : 'text-black'}
+              className={!isAuthenticated ? 'text-gray-400' : 'text-green'}
             >
               Submit
             </button>

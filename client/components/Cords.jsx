@@ -21,10 +21,10 @@ export default function Cords() {
   }, [location])
 
   return (
-
     <div className="text-lg p-6 h-20">
       <div className="flex flex-row justify-evenly">
         <p className="">{location.lat}</p>
+        <img className="w-16" src="images/spin.gif" alt="" />
         <p className="">{location.long}</p>
       </div>
     </div>

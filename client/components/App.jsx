@@ -34,13 +34,15 @@ function App() {
   }, [isAuthenticated])
 
   return (
-    <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="/landing" element={<Landing />} />
-      <Route path="/userprofile" element={<UserProfile />} />
+    <div className="bg-stone-50">
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/landing" element={<Landing />} />
+        <Route path="/userprofile" element={<UserProfile />} />
 
-      <Route path="/profile" element={<Registration />} />
-    </Routes>
+        <Route path="/profile" element={<Registration />} />
+      </Routes>
+    </div>
   )
 }
 

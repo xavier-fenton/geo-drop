@@ -40,15 +40,16 @@ export default function Map() {
         ))}
         <TileLayer url="https://api.mapbox.com/styles/v1/mapbox/streets-v11/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWljaGFlbC1yIiwiYSI6ImNrZXM1Zm9iaDJiNmYycW1za2dobDZ4d3gifQ.a5mK2DxNqWhlzvoa8Zxb2Q" />
       </MapContainer>
+      <p className="mx-6 text-large text-centre">Your messages</p>
       <ul>
         {messages.map((message) => (
           <>
             <li key={message.messageId}>
-              <section className="bg-no-repeat bg-cover bg-center bg-blue-300 my-3 p-2 text-white drop-shadow-xl rounded-lg">
+              <section className="mx-6 bg-no-repeat bg-cover bg-center bg-blue-400 my-3 p-2 text-white drop-shadow-xl rounded-lg">
                 {`${message.msg}`}
               </section>
 
-              <section className="text-gray-400 text-sm">
+              <section className="mx-6 text-gray-400 text-sm">
                 {`${moment(message.dateCreated).format('DD/MM/YYYY HH:MM:SS')}`}
               </section>
             </li>
