@@ -43,7 +43,7 @@ export default function Message(props) {
             <ul>
               {props.messages.map((message, index) => (
                 <li key={index} className="break-all">
-                  <section className="bg-no-repeat break-normal bg-cover bg-center bg-blue-400 my-3 p-2 text-white drop-shadow-xl rounded-lg">
+                  <section className="bg-no-repeat break-normal bg-cover bg-center bg-blue-400 my-3 p-2 text-white  drop-shadow-xl rounded-lg">
                     {`${message.msg}`}
                   </section>
 

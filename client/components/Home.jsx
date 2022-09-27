@@ -81,7 +81,7 @@ export default function Home() {
           <Cords />
           <Logo />
           <Message messages={messages} />
-          <p className="mr-px flex justify-center ">radius</p>
+          <p className="mr-px flex justify-center text-gray-400 ">radius</p>
           <div className="px-6">
             <div className="flex justify-center ">
               <input
@@ -94,7 +94,7 @@ export default function Home() {
                 onChange={handleChange}
               />
             </div>
-            <div className=" w-full p-3 my-3 rounded-full border-2 drop-shadow-xl border-blue   text-center btn btn-outline btn-success">
+            <div className=" w-full p-3 my-3 rounded-full border-2 drop-shadow-xl   text-center btn btn-active btn-ghost">
               <button className="text-center  " onClick={handleClick}>
                 Search Area
               </button>

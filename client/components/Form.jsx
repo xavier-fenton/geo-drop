@@ -90,7 +90,7 @@ function Form(props) {
         </div>
         <form className="">
           <textarea
-            className="w-full p-3 rounded-md border-2 border-blue  placeholder-gray resize-none "
+            className="w-full p-3 rounded-md border-2 border-blue  placeholder-gray resize-none"
             id="message"
             type="text"
             name="msg"
