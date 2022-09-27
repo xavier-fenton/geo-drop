@@ -21,7 +21,6 @@ function Registration() {
       email: user.email,
       description: user.description,
     })
-    console.log(setForm({}))
   }, [user])
 
   function handleChange(e) {
@@ -72,12 +71,14 @@ function Registration() {
                     className=" rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-gray-300 text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent"
                     name="name"
                     placeholder="Pick a cool user name"
+                    onChange={handleChange}
                   />
                 </div>
               </div>
 
               <div className="flex w-full my-4">
                 <button
+                  onClick={handleClick}
                   type="register"
                   className="py-2 px-4  bg-blue-600 hover:bg-blue-700 focus:ring-bluee-500 focus:ring-offset-blue-200 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg "
                 >

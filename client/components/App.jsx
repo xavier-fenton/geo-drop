@@ -25,8 +25,8 @@ function App() {
       dispatch(clearUser())
     } else {
       getAccessTokenSilently()
-        .then(token => getUser(token))
-        .then(userInDb => {
+        .then((token) => getUser(token))
+        .then((userInDb) => {
           userInDb ? dispatch(setUser(userInDb)) : navigate('/profile')
         })
         .catch((err) => console.error(err))
