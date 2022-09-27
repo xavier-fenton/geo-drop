@@ -18,7 +18,7 @@ export default function Cords() {
       // x.innerHTML = 'Geolocation is not supported by this browser.'
       alert('Geolocation is not supported by this browser.')
     }
-  }, [location])
+  }, [])
 
   return (
     <div className="text-lg p-6 h-20">
