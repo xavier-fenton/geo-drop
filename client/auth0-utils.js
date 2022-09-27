@@ -1,49 +1,29 @@
+import { useDispatch, useSelector } from 'react-redux'
+// TODO: import useAuth0 function
+
 import { setUser } from './actions/user'
-import store from './store'
+import { useAuth0 } from '@auth0/auth0-react'
 
-const emptyUser = {
-  auth0Id: '',
-  email: '',
-  name: '',
-  token: '',
-}
+// eslint-disable-next-line no-unused-vars
+export async function useCacheUser() {
+  const dispatch = useDispatch()
+  const tokenInRedux = useSelector((state) => Boolean(state.user?.token))
 
-function saveUser(user = emptyUser) {
-  store.dispatch(setUser(user))
-}
-
-export async function cacheUser(useAuth0) {
   const { isAuthenticated, getAccessTokenSilently, user } = useAuth0()
-  if (isAuthenticated) {
+
+  if (isAuthenticated && !tokenInRedux) {
     try {
+      // TODO: call getAccessTokenSilently and replace the token string below
       const token = await getAccessTokenSilently()
       const userToSave = {
-        auth0Id: user.sub,
-        email: user.email,
-        name: user.nickname,
-        token,
+        auth0Id: user?.sub,
+        email: user?.email,
+        token: token,
       }
-      saveUser(userToSave)
+
+      dispatch(setUser(userToSave))
     } catch (err) {
       console.error(err)
     }
-  } else {
-    saveUser()
   }
-}
-
-export function getLoginFn(useAuth0) {
-  return useAuth0().loginWithRedirect
-}
-
-export function getLogoutFn(useAuth0) {
-  return useAuth0().logout
-}
-
-export function getIsAuthenticated(useAuth0) {
-  return useAuth0().isAuthenticated
-}
-
-export function getRegisterFn(useAuth0) {
-  return useAuth0().loginWithRedirect
 }
