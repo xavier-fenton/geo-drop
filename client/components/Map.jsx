@@ -40,6 +40,17 @@ export default function Map() {
         ))}
         <TileLayer url="https://api.mapbox.com/styles/v1/mapbox/streets-v11/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWljaGFlbC1yIiwiYSI6ImNrZXM1Zm9iaDJiNmYycW1za2dobDZ4d3gifQ.a5mK2DxNqWhlzvoa8Zxb2Q" />
       </MapContainer>
+      <ul>
+        {messages.map((messages) => (
+          <>
+            <li
+              className="bg-no-repeat bg-cover bg-center bg-blue-300 my-3 p-2 text-white drop-shadow-xl rounded-lg"
+              key={messages.id}
+            >{` ${messages.msg}`}</li>
+            <li>{`${messages.dateCreated}`}</li>
+          </>
+        ))}
+      </ul>
     </>
   )
 }
