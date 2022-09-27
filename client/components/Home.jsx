@@ -9,7 +9,7 @@ import { getMessages } from '../api'
 
 export default function Home() {
   const [messages, setMessages] = useState([])
-  const [radius, setRadius] = useState(0.005)
+  const [radius, setRadius] = useState(0.05)
   const [done, setDone] = useState(false)
 
   function handleChange(event) {
@@ -44,14 +44,7 @@ export default function Home() {
     setMessages(retrievedMessages)
   }
 
-  // SetTimeout after things have loaded, Loader finishes at 2 seconds.
-
-  // useEffect(() => {
-  //   setTimeout(() => {
-  //     setDone(true)
-  //   }, 2500)
-  // }, [])
-
+ 
   useEffect(() => {
     const timer = setTimeout(() => setDone(true), 1000)
     return () => clearTimeout(timer)
