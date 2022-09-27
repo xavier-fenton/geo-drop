@@ -19,11 +19,12 @@ router.post('/', async (req, res) => {
 })
 
 // GET /api/v1/users/
-router.get('/', (req, res) => {
+router.get('/', checkJwt, (req, res) => {
   const auth0_id = req.user?.sub
-  db.getUsers(auth0_id)
-    .then((users) => {
-      res.json({ users })
+  console.log(auth0_id)
+  db.getUser(auth0_id)
+    .then((user) => {
+      res.json(user)
       return null
     })
     .catch((err) => {

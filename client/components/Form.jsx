@@ -19,9 +19,7 @@ function Form(props) {
     //   error msg config
     setError('')
   }
-  // useEffect(() => {
-  //   // console.log(form)
-  // }, [form.lat, form.long])
+ 
 
   function handleChange(event) {
     setForm({
