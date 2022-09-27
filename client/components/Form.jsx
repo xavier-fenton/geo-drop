@@ -85,14 +85,17 @@ function Form(props) {
   }
 
   return (
-    <div className="p-6">
-      <div className="">
+    <>
+      <div className="flex h-6">
         <div className="text-red" onClick={hideError}>
           {error && <Error />}
         </div>
-        <form className="">
+      </div>
+
+      <form>
+        <div className="flex justify-center m-0">
           <textarea
-            className="w-full p-3 rounded-md border-2 border-blue  placeholder-gray resize-none"
+            className="lg:w-6/12  w-full p-3 rounded-md border-2 border-blue  placeholder-gray resize-none"
             id="message"
             type="text"
             name="msg"
@@ -101,20 +104,20 @@ function Form(props) {
             onChange={handleChange}
             value={form.msg}
           ></textarea>
+        </div>
 
-          <div className="flex justify-center px-4 py-2  w-full p-3 my-3 rounded-full border-2 drop-shadow-xl border-blue   text-center btn btn-outline btn-success ">
-            <button
-              type="button"
-              onClick={handleSubmit}
-              disabled={!isAuthenticated}
-              className={!isAuthenticated ? 'text-gray-400' : 'text-black'}
-            >
-              Submit
-            </button>
-          </div>
-        </form>
-      </div>
-    </div>
+        <div className="flex justify-center px-4 py-2  w-full p-3 my-3 rounded-full border-2 drop-shadow-xl border-blue   text-center btn btn-outline btn-success ">
+          <button
+            type="button"
+            onClick={handleSubmit}
+            disabled={!isAuthenticated}
+            className={!isAuthenticated ? 'text-gray-400' : 'text-black'}
+          >
+            Submit
+          </button>
+        </div>
+      </form>
+    </>
   )
 }
 export default Form
