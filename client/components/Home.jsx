@@ -46,10 +46,15 @@ export default function Home() {
 
   // SetTimeout after things have loaded, Loader finishes at 2 seconds.
 
+  // useEffect(() => {
+  //   setTimeout(() => {
+  //     setDone(true)
+  //   }, 2500)
+  // }, [])
+
   useEffect(() => {
-    setTimeout(() => {
-      setDone(true)
-    }, 2500)
+    const timer = setTimeout(() => setDone(true), 1000)
+    return () => clearTimeout(timer)
   }, [])
 
   return (

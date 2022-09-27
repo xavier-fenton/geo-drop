@@ -105,7 +105,7 @@ function Form(props) {
               type="button"
               onClick={handleSubmit}
               disabled={!isAuthenticated}
-              className={!isAuthenticated && 'text-gray-400'}
+              className={!isAuthenticated ? 'text-gray-400' : 'text-black'}
             >
               Submit
             </button>

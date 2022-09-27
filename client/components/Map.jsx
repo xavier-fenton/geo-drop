@@ -43,13 +43,15 @@ export default function Map() {
       <ul>
         {messages.map((message) => (
           <>
-            <li
-              className="bg-no-repeat bg-cover bg-center bg-blue-300 my-3 p-2 text-white drop-shadow-xl rounded-lg"
-              key={message.id}
-            >{` ${message.msg}`}</li>
-            <li>{`${moment(message.dateCreated).format(
-              'DD/MM/YYYY HH:MM:SS'
-            )}`}</li>
+            <li key={message.messageId}>
+              <section className="bg-no-repeat bg-cover bg-center bg-blue-300 my-3 p-2 text-white drop-shadow-xl rounded-lg">
+                {`${message.msg}`}
+              </section>
+
+              <section className="text-gray-400 text-sm">
+                {`${moment(message.dateCreated).format('DD/MM/YYYY HH:MM:SS')}`}
+              </section>
+            </li>
           </>
         ))}
       </ul>
