@@ -27,6 +27,7 @@ function Form(props) {
     }
   }, [isAuthenticated])
 
+
   function handleChange(event) {
     setForm({
       ...form,
