@@ -14,26 +14,24 @@ export default function Bio() {
 
   return (
     <div>
-      <section className="flex  justify-center h-12">
-        <img src="icons/login.png" alt="" />
+      <section className="flex justify-center h-24 drop-shadow-xl">
+        <img src="icons/5087607.png" alt="" />
       </section>
-      <div className="flex flex-col items-center p-3 mt-2 justify-center">
-        <section className=" text-lg   font-bold tracking-wider">
+
+      <section className="relative flex mx-6  items-center">
+        <div className="flex-grow border-t border-gray-400"></div>
+
+        <div className="flex-grow border-t border-gray-400"></div>
+      </section>
+      <div className="flex flex-col mt-6 items-center h-16 justify-center">
+        <section className=" text-lg font-bold tracking-wider">
           <p>{bio[1]}</p>
         </section>
 
-        <section className="text-sm leading-snug">
+        <section className="text-sm mb-6 leading-snug">
           <p>{bio[0]}</p>
         </section>
       </div>
-      <section>
-        <a
-          href="/"
-          className="flex justify-center text-lg p-3 drop-shadow-xl hover:underline"
-        >
-          Home
-        </a>
-      </section>
     </div>
   )
 }

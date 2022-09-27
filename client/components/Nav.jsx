@@ -26,8 +26,8 @@ function Nav() {
     <nav>
       <section className="text-lg p-3 drop-shadow-xl">
         <IfAuthenticated>
-          <section className="flex flex-row justify-evenly">
-            <a href="/userprofile" className="nav-link  ">
+          <section className="flex flex-row justify-evenly cursor-pointer">
+            <a href="/userprofile" className="nav-link ">
               Profile {user.name}
             </a>
 
