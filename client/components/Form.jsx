@@ -95,7 +95,7 @@ function Form(props) {
       <form>
         <div className="flex justify-center m-0">
           <textarea
-            className="lg:w-6/12  w-full p-3 rounded-md border-2 border-blue  placeholder-gray resize-none"
+            className="lg:w-6/12 w-96 p-3 rounded-md border-2 border-blue  placeholder-gray resize-none"
             id="message"
             type="text"
             name="msg"

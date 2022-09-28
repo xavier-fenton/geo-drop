@@ -2890,6 +2890,14 @@ html {
   width: 50%;
 }
 
+.w-6 {
+  width: 1.5rem;
+}
+
+.w-96 {
+  width: 24rem;
+}
+
 .max-w-md {
   max-width: 28rem;
 }
