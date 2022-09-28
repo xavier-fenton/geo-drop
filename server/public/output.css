@@ -2766,24 +2766,17 @@ html {
   z-index: 10;
 }
 
-.m-0 {
-  margin: 0px;
-}
-
-.m-2 {
-  margin: 0.5rem;
-}
-
-.m-3 {
-  margin: 0.75rem;
-}
-
 .m-5 {
   margin: 1.25rem;
 }
 
-.m-6 {
-  margin: 1.5rem;
+.m-0 {
+  margin: 0px;
+}
+
+.mx-5 {
+  margin-left: 1.25rem;
+  margin-right: 1.25rem;
 }
 
 .my-3 {
@@ -2804,16 +2797,6 @@ html {
 .my-4 {
   margin-top: 1rem;
   margin-bottom: 1rem;
-}
-
-.mx-5 {
-  margin-left: 1.25rem;
-  margin-right: 1.25rem;
-}
-
-.mx-2 {
-  margin-left: 0.5rem;
-  margin-right: 0.5rem;
 }
 
 .mt-2 {
@@ -2900,10 +2883,6 @@ html {
   width: 4rem;
 }
 
-.w-96 {
-  width: 24rem;
-}
-
 .w-full {
   width: 100%;
 }
@@ -2914,10 +2893,6 @@ html {
 
 .w-1\/5 {
   width: 20%;
-}
-
-.w-6\/12 {
-  width: 50%;
 }
 
 .max-w-md {
@@ -3055,11 +3030,6 @@ html {
 .bg-blue-600 {
   --tw-bg-opacity: 1;
   background-color: rgb(37 99 235 / var(--tw-bg-opacity));
-}
-
-.bg-stone-100 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(245 245 244 / var(--tw-bg-opacity));
 }
 
 .bg-gradient-to-r {
@@ -3388,35 +3358,6 @@ html {
   }
 }
 
-@media (min-width: 768px) {
-  .md\:flex {
-    display: flex;
-  }
-
-  .md\:w-6\/12 {
-    width: 50%;
-  }
-
-  .md\:justify-center {
-    justify-content: center;
-  }
-
-  .md\:px-12 {
-    padding-left: 3rem;
-    padding-right: 3rem;
-  }
-
-  .md\:px-8 {
-    padding-left: 2rem;
-    padding-right: 2rem;
-  }
-
-  .md\:px-10 {
-    padding-left: 2.5rem;
-    padding-right: 2.5rem;
-  }
-}
-
 @media (min-width: 1024px) {
   .lg\:flex {
     display: flex;
@@ -3426,21 +3367,13 @@ html {
     width: 50%;
   }
 
-  .lg\:w-7\/12 {
-    width: 58.333333%;
-  }
-
-  .lg\:w-5\/12 {
-    width: 41.666667%;
-  }
-
   .lg\:justify-center {
     justify-content: center;
   }
 
-  .lg\:px-10 {
-    padding-left: 2.5rem;
-    padding-right: 2.5rem;
+  .lg\:px-12 {
+    padding-left: 3rem;
+    padding-right: 3rem;
   }
 
   .lg\:px-8 {
@@ -3448,17 +3381,13 @@ html {
     padding-right: 2rem;
   }
 
-  .lg\:px-12 {
-    padding-left: 3rem;
-    padding-right: 3rem;
+  .lg\:px-10 {
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
   }
 }
 
 @media (min-width: 1280px) {
-  .xl\:w-6\/12 {
-    width: 50%;
-  }
-
   .xl\:py-40 {
     padding-top: 10rem;
     padding-bottom: 10rem;
