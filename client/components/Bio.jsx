@@ -7,7 +7,6 @@ export default function Bio() {
 
   useEffect(() => {
     if (user) {
-      console.log(user)
       setBio([user.email, user.nickname])
     }
   }, [isAuthenticated])

@@ -22,7 +22,6 @@ test('get all messages from DB', async () => {
   const input = { lat: -36.8682574, long: 174.7656955, r: 0.05 }
   // function which returns data
   const messages = await getMessage(input, testDb)
-  console.log(messages)
 
   expect(messages).toHaveLength(4)
 })

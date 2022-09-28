@@ -28,15 +28,12 @@ export function getMessagesById(auth0Id, token) {
 // messageEntry body will require auth0Id
 export function addMessage(messageEntry, token) {
   const { auth0Id, lat, long, msg } = messageEntry
-  console.log(`this is the message entry ${messageEntry}`)
-  console.log('hits the api')
 
   return request
     .post('/api/v1/messages')
     .set('Authorization', `Bearer ${token}`)
     .send({ auth0Id, lat, long, msg })
     .then((response) => {
-      console.log(response)
       return response.body
     })
 }
