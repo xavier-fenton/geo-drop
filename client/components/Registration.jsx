@@ -47,7 +47,7 @@ function Registration() {
       {/* <img src="/images/auckland.jpg" class="absolute h-full w-full object-cover" /> */}
 
       <div className="h-screen grid place-items-center">
-        <div className="flex flex-col max-w-md px-4 py-8 bg-gray-100 shadow dark:bg-gray-100 sm:px-6 md:px-8 lg:px-10">
+        <div className="flex flex-col max-w-md px-4 py-8 bg-gray-100 shadow dark:bg-gray-100 sm:px-6 lg:px-8 lg:px-10">
           <div className="self-center mb-2 text-xl font-light text-gray-800 sm:text-2xl dark:text-black">
             Complete your registration
           </div>
