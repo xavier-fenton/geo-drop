@@ -1,5 +1,4 @@
 const express = require('express')
-const { ReactReduxContext } = require('react-redux')
 const { checkJwt } = require('../auth0')
 const db = require('../db/messages')
 
