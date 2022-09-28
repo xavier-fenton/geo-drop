@@ -3,7 +3,7 @@ import Cords from './Cords'
 import Message from './Message'
 import Form from './Form'
 import Nav from './Nav'
-import Logo from './Logo'
+
 import ReactLoading from 'react-loading'
 import { getMessages } from '../api'
 
@@ -44,7 +44,6 @@ export default function Home() {
     setMessages(retrievedMessages)
   }
 
- 
   useEffect(() => {
     const timer = setTimeout(() => setDone(true), 1000)
     return () => clearTimeout(timer)
@@ -72,7 +71,7 @@ export default function Home() {
       ) : (
         <div className="w-screen\">
           <Cords />
-          <Logo />
+
           <Message messages={messages} />
           <p className="mr-px flex justify-center text-gray-400 ">radius</p>
           <div className="px-6">
