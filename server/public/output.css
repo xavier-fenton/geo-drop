@@ -1831,6 +1831,20 @@ html {
   content: attr(data-title);
 }
 
+.label {
+  display: flex;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+       user-select: none;
+  align-items: center;
+  justify-content: space-between;
+  padding-left: 0.25rem;
+  padding-right: 0.25rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+
+
 .input {
   flex-shrink: 1;
   transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-backdrop-filter;
@@ -2741,6 +2755,28 @@ html {
 
 .z-10 {
   z-index: 10;
+
+}
+
+.m-0 {
+  margin: 0px;
+}
+
+.m-2 {
+  margin: 0.5rem;
+}
+
+.m-3 {
+  margin: 0.75rem;
+}
+
+.m-5 {
+  margin: 1.25rem;
+}
+
+.m-6 {
+  margin: 1.5rem;
+
 }
 
 .mx-32 {
@@ -2768,6 +2804,20 @@ html {
   margin-bottom: 1rem;
 }
 
+
+.mx-5 {
+  margin-left: 1.25rem;
+  margin-right: 1.25rem;
+}
+
+.mx-2 {
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+}
+
+.mt-2 {
+  margin-top: 0.5rem;
+
 .mx-4 {
   margin-left: 1rem;
   margin-right: 1rem;
@@ -2779,6 +2829,7 @@ html {
 
 .mb-6 {
   margin-bottom: 1.5rem;
+
 }
 
 .mr-px {
@@ -2804,6 +2855,7 @@ html {
 .mt-8 {
   margin-top: 2rem;
 }
+
 
 .mt-3 {
   margin-top: 0.75rem;
@@ -2833,6 +2885,10 @@ html {
   height: 5rem;
 }
 
+.h-6 {
+  height: 1.5rem;
+}
+
 .h-screen {
   height: 100vh;
 }
@@ -2849,12 +2905,22 @@ html {
   height: 24rem;
 }
 
+
+.h-4 {
+  height: 1rem;
+}
+
+
 .max-h-80 {
   max-height: 20rem;
 }
 
 .w-16 {
   width: 4rem;
+}
+
+.w-96 {
+  width: 24rem;
 }
 
 .w-full {
@@ -2869,8 +2935,13 @@ html {
   width: 20%;
 }
 
+
+.w-6\/12 {
+  width: 50%;
+
 .w-9\/12 {
   width: 75%;
+
 }
 
 .max-w-md {
@@ -2880,6 +2951,7 @@ html {
 .flex-1 {
   flex: 1 1 0%;
 }
+
 
 .flex-shrink {
   flex-shrink: 1;
@@ -2892,6 +2964,7 @@ html {
 .cursor-pointer {
   cursor: pointer;
 }
+
 
 .resize-none {
   resize: none;
@@ -2968,6 +3041,7 @@ html {
   border-width: 1px;
 }
 
+
 .border-t {
   border-top-width: 1px;
 }
@@ -2976,6 +3050,7 @@ html {
   --tw-border-opacity: 1;
   border-color: rgb(156 163 175 / var(--tw-border-opacity));
 }
+
 
 .border-transparent {
   border-color: transparent;
@@ -3026,6 +3101,13 @@ html {
   background-color: rgb(37 99 235 / var(--tw-bg-opacity));
 }
 
+
+.bg-stone-100 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(245 245 244 / var(--tw-bg-opacity));
+}
+
+
 .bg-gradient-to-r {
   background-image: linear-gradient(to right, var(--tw-gradient-stops));
 }
@@ -3066,9 +3148,11 @@ html {
   padding: 1.5rem;
 }
 
+
 .p-3 {
   padding: 0.75rem;
 }
+
 
 .p-2 {
   padding: 0.5rem;
@@ -3103,6 +3187,12 @@ html {
   padding-top: 2rem;
   padding-bottom: 2rem;
 }
+
+
+.pb-2 {
+  padding-bottom: 0.5rem;
+}
+
 
 .text-center {
   text-align: center;
@@ -3282,6 +3372,11 @@ html {
   color: rgb(29 78 216 / var(--tw-text-opacity));
 }
 
+.hover\:underline:hover {
+  text-decoration-line: underline;
+}
+
+
 .hover\:drop-shadow-xl:hover {
   --tw-drop-shadow: drop-shadow(0 20px 13px rgb(0 0 0 / 0.03)) drop-shadow(0 8px 5px rgb(0 0 0 / 0.08));
   filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
@@ -3345,6 +3440,20 @@ html {
 }
 
 @media (min-width: 768px) {
+
+  .md\:flex {
+    display: flex;
+  }
+
+  .md\:w-6\/12 {
+    width: 50%;
+  }
+
+  .md\:justify-center {
+    justify-content: center;
+  }
+
+
   .md\:px-12 {
     padding-left: 3rem;
     padding-right: 3rem;
@@ -3354,16 +3463,55 @@ html {
     padding-left: 2rem;
     padding-right: 2rem;
   }
-}
 
-@media (min-width: 1024px) {
-  .lg\:px-10 {
+  .md\:px-10 {
     padding-left: 2.5rem;
     padding-right: 2.5rem;
   }
 }
 
+@media (min-width: 1024px) {
+  .lg\:flex {
+    display: flex;
+  }
+
+  .lg\:w-6\/12 {
+    width: 50%;
+  }
+
+  .lg\:w-7\/12 {
+    width: 58.333333%;
+  }
+
+  .lg\:w-5\/12 {
+    width: 41.666667%;
+  }
+
+  .lg\:justify-center {
+    justify-content: center;
+  }
+
+  .lg\:px-10 {
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+  }
+
+  .lg\:px-8 {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+
+  .lg\:px-12 {
+    padding-left: 3rem;
+    padding-right: 3rem;
+  }
+}
+
 @media (min-width: 1280px) {
+  .xl\:w-6\/12 {
+    width: 50%;
+  }
+
   .xl\:py-40 {
     padding-top: 10rem;
     padding-bottom: 10rem;

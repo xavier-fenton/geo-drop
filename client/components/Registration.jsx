@@ -45,10 +45,12 @@ function Registration() {
   return (
     <div className="bg-stone-50 relative h-screen">
       <div className="h-screen grid place-items-center">
+
         <div className="flex flex-col max-w-md drop-shadow-xl px-4 py-8 bg-gray-100 shadow dark:bg-gray-100 sm:px-6 md:px-8 lg:px-10">
           <section className="self-center w-9/12 mb-6">
             <img src="images/12.png" alt="" />
           </section>
+
           <div className="self-center mb-2 text-xl font-light text-gray-800 sm:text-2xl dark:text-black">
             Complete your registration
           </div>

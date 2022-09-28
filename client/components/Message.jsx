@@ -5,9 +5,9 @@ export default function Message(props) {
 
   return (
     <>
-      <div className="p-6 hover:drop-shadow-xl ">
+      <div className="lg:flex justify-center p-6 hover:drop-shadow-xl ">
         {loader ? (
-          <div className="overflow-scroll max-h-80 h-96 text-lg p-6 rounded-md border-2 border-blue bg-gradient-to-r from-gray-100 via-gray-50 to-white">
+          <div className="lg:w-6/12 overflow-scroll max-h-80 h-96 text-lg p-6 rounded-md border-2 border-blue bg-gradient-to-r from-gray-100 via-gray-50 to-white">
             <ul>
               {props.messages.map((message, index) => (
                 <li key={index} className="break-all">
