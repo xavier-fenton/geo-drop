@@ -1,12 +1,9 @@
 const connection = require('./connection')
 
 function getMessage(input, db = connection) {
-  
   const lat = Number(input.lat)
   const long = Number(input.long)
   const r = Number(input.r)
-
-  console.log(lat, long, r)
 
   return db('users')
     .join('messages', 'users.auth0_id', 'messages.msg_auth0_id')
@@ -28,7 +25,6 @@ function getMessage(input, db = connection) {
 }
 
 function getMessagesById(auth0Id, db = connection) {
-  console.log(auth0Id)
   return db('users')
     .join('messages', 'users.auth0_id', 'messages.msg_auth0_id')
     .where('users.auth0_id', auth0Id)
