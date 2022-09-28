@@ -74,22 +74,24 @@ export default function Home() {
 
           <Message messages={messages} />
           <p className="mr-px flex justify-center text-gray-400 ">radius</p>
-          <div className="px-6">
-            <div className="flex justify-center ">
-              <input
-                className="w-full h-2 ark:bg-gray-700"
-                min="0.005"
-                max="0.05"
-                step="0.001"
-                type="range"
-                value={radius}
-                onChange={handleChange}
-              />
-            </div>
-            <div className=" w-full p-3 my-3 rounded-full border-2 drop-shadow-xl   text-center btn btn-active btn-ghost">
-              <button className="text-center  " onClick={handleClick}>
-                Search Area
-              </button>
+          <div className="lg:flex lg:justify-center">
+            <div className="p-6 lg:w-6/12">
+              <div className="flex justify-center ">
+                <input
+                  className="w-full h-2 ark:bg-gray-700"
+                  min="0.005"
+                  max="0.05"
+                  step="0.001"
+                  type="range"
+                  value={radius}
+                  onChange={handleChange}
+                />
+              </div>
+              <div className=" w-full p-3 my-3 rounded-full border-2 drop-shadow-xl text-center btn btn-active btn-ghost">
+                <button className="text-center  " onClick={handleClick}>
+                  Search Area
+                </button>
+              </div>
             </div>
           </div>
           <Form loadMessages={loadMessages} />

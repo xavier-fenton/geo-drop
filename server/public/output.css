@@ -3377,6 +3377,10 @@ html {
     width: 50%;
   }
 
+  .lg\:w-6 {
+    width: 1.5rem;
+  }
+
   .lg\:justify-center {
     justify-content: center;
   }
