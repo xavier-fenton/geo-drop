@@ -1844,6 +1844,7 @@ html {
   padding-bottom: 0.5rem;
 }
 
+
 .input {
   flex-shrink: 1;
   transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-backdrop-filter;
@@ -2103,11 +2104,6 @@ html {
   --tw-bg-opacity: 0.1;
   color: hsl(var(--bc) / var(--tw-text-opacity));
   --tw-text-opacity: 0.2;
-}
-
-.btm-nav>* .label {
-  font-size: 1rem;
-  line-height: 1.5rem;
 }
 
 .btn:active:hover,
@@ -2423,11 +2419,6 @@ html {
 
 .drawer-toggle:focus-visible ~ .drawer-content .drawer-button.btn-ghost {
   outline: 2px solid currentColor;
-}
-
-.label a:hover {
-  --tw-text-opacity: 1;
-  color: hsl(var(--bc) / var(--tw-text-opacity));
 }
 
 .input[list]::-webkit-calendar-picker-indicator {
@@ -2764,6 +2755,7 @@ html {
 
 .z-10 {
   z-index: 10;
+
 }
 
 .m-0 {
@@ -2784,6 +2776,12 @@ html {
 
 .m-6 {
   margin: 1.5rem;
+
+}
+
+.mx-32 {
+  margin-left: 8rem;
+  margin-right: 8rem;
 }
 
 .my-3 {
@@ -2806,6 +2804,7 @@ html {
   margin-bottom: 1rem;
 }
 
+
 .mx-5 {
   margin-left: 1.25rem;
   margin-right: 1.25rem;
@@ -2818,6 +2817,19 @@ html {
 
 .mt-2 {
   margin-top: 0.5rem;
+
+.mx-4 {
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+
+.mt-6 {
+  margin-top: 1.5rem;
+}
+
+.mb-6 {
+  margin-bottom: 1.5rem;
+
 }
 
 .mr-px {
@@ -2836,16 +2848,17 @@ html {
   margin-top: 2.5rem;
 }
 
-.mb-6 {
-  margin-bottom: 1.5rem;
-}
-
 .mb-2 {
   margin-bottom: 0.5rem;
 }
 
 .mt-8 {
   margin-top: 2rem;
+}
+
+
+.mt-3 {
+  margin-top: 0.75rem;
 }
 
 .block {
@@ -2860,8 +2873,12 @@ html {
   display: grid;
 }
 
-.h-12 {
-  height: 3rem;
+.h-24 {
+  height: 6rem;
+}
+
+.h-16 {
+  height: 4rem;
 }
 
 .h-20 {
@@ -2888,9 +2905,11 @@ html {
   height: 24rem;
 }
 
+
 .h-4 {
   height: 1rem;
 }
+
 
 .max-h-80 {
   max-height: 20rem;
@@ -2916,8 +2935,13 @@ html {
   width: 20%;
 }
 
+
 .w-6\/12 {
   width: 50%;
+
+.w-9\/12 {
+  width: 75%;
+
 }
 
 .max-w-md {
@@ -2927,6 +2951,20 @@ html {
 .flex-1 {
   flex: 1 1 0%;
 }
+
+
+.flex-shrink {
+  flex-shrink: 1;
+}
+
+.flex-grow {
+  flex-grow: 1;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
 
 .resize-none {
   resize: none;
@@ -3003,6 +3041,17 @@ html {
   border-width: 1px;
 }
 
+
+.border-t {
+  border-top-width: 1px;
+}
+
+.border-gray-400 {
+  --tw-border-opacity: 1;
+  border-color: rgb(156 163 175 / var(--tw-border-opacity));
+}
+
+
 .border-transparent {
   border-color: transparent;
 }
@@ -3037,11 +3086,6 @@ html {
   background-color: rgb(96 165 250 / var(--tw-bg-opacity));
 }
 
-.bg-blue-900 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(30 58 138 / var(--tw-bg-opacity));
-}
-
 .bg-gray-100 {
   --tw-bg-opacity: 1;
   background-color: rgb(243 244 246 / var(--tw-bg-opacity));
@@ -3057,10 +3101,12 @@ html {
   background-color: rgb(37 99 235 / var(--tw-bg-opacity));
 }
 
+
 .bg-stone-100 {
   --tw-bg-opacity: 1;
   background-color: rgb(245 245 244 / var(--tw-bg-opacity));
 }
+
 
 .bg-gradient-to-r {
   background-image: linear-gradient(to right, var(--tw-gradient-stops));
@@ -3098,13 +3144,15 @@ html {
      object-fit: cover;
 }
 
+.p-6 {
+  padding: 1.5rem;
+}
+
+
 .p-3 {
   padding: 0.75rem;
 }
 
-.p-6 {
-  padding: 1.5rem;
-}
 
 .p-2 {
   padding: 0.5rem;
@@ -3140,9 +3188,11 @@ html {
   padding-bottom: 2rem;
 }
 
+
 .pb-2 {
   padding-bottom: 0.5rem;
 }
+
 
 .text-center {
   text-align: center;
@@ -3235,9 +3285,9 @@ html {
   color: rgb(31 41 55 / var(--tw-text-opacity));
 }
 
-.text-blue-500 {
+.text-blue-400 {
   --tw-text-opacity: 1;
-  color: rgb(59 130 246 / var(--tw-text-opacity));
+  color: rgb(96 165 250 / var(--tw-text-opacity));
 }
 
 .text-gray-700 {
@@ -3326,6 +3376,7 @@ html {
   text-decoration-line: underline;
 }
 
+
 .hover\:drop-shadow-xl:hover {
   --tw-drop-shadow: drop-shadow(0 20px 13px rgb(0 0 0 / 0.03)) drop-shadow(0 8px 5px rgb(0 0 0 / 0.08));
   filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
@@ -3389,6 +3440,7 @@ html {
 }
 
 @media (min-width: 768px) {
+
   .md\:flex {
     display: flex;
   }
@@ -3400,6 +3452,7 @@ html {
   .md\:justify-center {
     justify-content: center;
   }
+
 
   .md\:px-12 {
     padding-left: 3rem;

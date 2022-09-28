@@ -41,9 +41,6 @@ function Form(props) {
 
     await navigator.geolocation.getCurrentPosition((position) => {
       const crd = position.coords
-      console.log(`Recorded Form latitude: ${crd.latitude}`)
-      console.log(`Recorded Form longitude: ${crd.longitude}`)
-      console.log(`More or less: ${crd.accuracy} meters`)
 
       setForm({
         auth0Id: user.sub,
@@ -51,7 +48,7 @@ function Form(props) {
         long: crd.longitude,
         msg: form.msg,
       })
-      console.log(form)
+
       getAccessTokenSilently()
         .then((token) => {
           return addMessage(
@@ -81,7 +78,6 @@ function Form(props) {
       // put all this info to the database upon submission
       // clear the form
     })
-    console.log(`this is forminput: ${form}`)
   }
 
   return (
