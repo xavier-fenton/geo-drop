@@ -42,10 +42,13 @@ export default function UserProfile() {
         <span className="flex-shrink mx-4 text-gray-400">Your Messages</span>
         <div className="flex-grow border-t border-gray-400"></div>
       </section>
-      <ul>
+      <ul className="h-96">
         {messages.map((message) => (
           <li key={message.messageId}>
-            <section className="mx-6 bg-no-repeat bg-cover bg-center bg-blue-400 my-3 p-2 text-white drop-shadow-xl rounded-lg">
+            <section
+              style={{ flex: 1, flexWrap: 'wrap' }}
+              className="mx-6 bg-no-repeat bg-cover bg-center bg-blue-400 my-3 p-2 text-white drop-shadow-xl rounded-lg"
+            >
               {`${message.msg}`}
             </section>
 

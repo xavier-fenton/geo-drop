@@ -18,7 +18,7 @@ export default function Bio() {
         <img src="icons/5087607.png" alt="" />
       </section>
 
-      <section className="relative flex mx-6  items-center">
+      <section className="relative flex mx-32  items-center">
         <div className="flex-grow border-t border-gray-400"></div>
 
         <div className="flex-grow border-t border-gray-400"></div>
