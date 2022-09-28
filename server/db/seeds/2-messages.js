@@ -9,7 +9,7 @@ exports.seed = function (knex) {
           lat: -36.8682574,
           long: 174.7656955,
           name: 'placeholder',
-          msg: 'hello from couch',
+          msg: 'Hello from couch',
           msg_auth0_id: 'auth0|632fb6a4b8b1424ca462bdb4',
           date_created: new Date(Date.now()),
           image_path: '/',
