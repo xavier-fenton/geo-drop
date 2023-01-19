@@ -11,15 +11,18 @@ function CalculateDistance(lat1, long1, lat2, long2) {
 } // CalculateDistance
 
 // The target longitude and latitude
-var targetlong = 174.748574
-var targetlat = -36.870118
+var targetlong = 174.776694
+var targetlat = -36.865277
+
+
 
 // Call this on an interval
 function OnInterval() {
   // Get the coordinates they are at
   // home
-  const lat = -36.869338
-  const long = 174.747368
+
+  const lat = -36.8644371
+  const long = 174.776396
 
   var distance = CalculateDistance(targetlat, targetlong, lat, long)
   var newDistance = distance / 100
@@ -33,9 +36,3 @@ function OnInterval() {
 
 OnInterval()
 
-// function trueMessage(input, db = connection) {
-//   return db('messages')
-//     .whereBetween('lat', [lat - r, lat + r])
-//     .whereBetween('long', [long - r, long + r])
-//     .select('msg', 'id', 'name')
-// }

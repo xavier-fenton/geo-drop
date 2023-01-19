@@ -6,14 +6,11 @@ const router = express.Router()
 
 module.exports = router
 
-// /api/v1/messages?lat=-36.8645&long=174.7765
-
 router.get('/', async (req, res) => {
   const input = req.query
 
   try {
     const msg = await db.getMessage(input)
-    // console.log(msg)
     res.json(msg)
   } catch (err) {
     console.error(err)
@@ -21,12 +18,44 @@ router.get('/', async (req, res) => {
   }
 })
 
-//POST /api/v1/messages
-router.post('/', checkJwt, (req, res) => {
-  const { name, lat, long, msg } = req.body
-  console.log(req.body)
+router.get('/:auth0Id', async (req, res) => {
+  try {
+    const auth0Id = req.params.auth0Id
+    const messagesById = await db.getMessagesById(auth0Id)
 
-  db.addMessage({ name, lat, long, msg })
+    const messageById = messagesById.map((message) => {
+      return message
+    })
+
+    res.json(messageById)
+  } catch (err) {
+    console.error(err)
+    res.status(500).send(err.message)
+  }
+})
+
+router.post('/', checkJwt, (req, res) => {
+  // here auth0Id is assumed to be passed from req.body
+
+  const { auth0Id, lat, long, msg } = req.body
+
+  db.addMessage({ auth0Id, lat, long, msg })
+    .then(() => {
+      res.sendStatus(201)
+      return null
+    })
+    .catch((err) => {
+      console.error(err)
+      res.status(500).json({ message: 'error in server' })
+    })
+})
+
+router.patch('/:messageId', checkJwt, (req, res) => {
+  // pass on the msg from the front
+  const messageId = req.params.messageId
+  const updatedMessageEntry = req.body
+
+  db.updateMessage(messageId, updatedMessageEntry)
     .then(() => {
       res.sendStatus(201)
       return null

@@ -15,14 +15,36 @@ export function getMessages(location) {
     .catch(logError)
 }
 
-export function addMessages(messageEntry, token) {
-  const { name, lat, long, msg } = messageEntry
-  console.log(messageEntry)
+export function getMessagesById(auth0Id, token) {
+  return request
+    .get(`${rootUrl}/messages/${auth0Id}`)
+    .set('Authorization', `Bearer ${token}`)
+    .then((res) => {
+      return res.body
+    })
+    .catch(logError)
+}
+
+// messageEntry body will require auth0Id
+export function addMessage(messageEntry, token) {
+  const { auth0Id, lat, long, msg } = messageEntry
 
   return request
     .post('/api/v1/messages')
     .set('Authorization', `Bearer ${token}`)
-    .send({ name, lat, long, msg })
+    .send({ auth0Id, lat, long, msg })
+    .then((response) => {
+      return response.body
+    })
+}
+
+export function updateMessage(messageId, updatedMessageEntry, token) {
+  const { msg } = updatedMessageEntry
+
+  return request
+    .post(`/api/v1/messages/${messageId}`)
+    .set('Authorization', `Bearer ${token}`)
+    .send({ msg })
     .then((response) => {
       console.log(response)
       return response.body
@@ -50,7 +72,7 @@ function logError(err) {
     throw new Error('Username already taken - please choose another')
   } else if (err.message === 'Forbidden') {
     throw new Error(
-      'Only the user who added the fruit may update and delete it'
+      'Only the user who added the message may update and delete it'
     )
   } else {
     // eslint-disable-next-line no-console
