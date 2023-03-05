@@ -34,7 +34,7 @@ function App() {
   }, [isAuthenticated])
 
   return (
-    <div className="bg-stone-50">
+    <div className="bg-stone-50 w-full min-h-screen flex flex-col">
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/landing" element={<Landing />} />
